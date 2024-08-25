@@ -46,9 +46,9 @@ ul
 }
 .section
 {
-    /* background: var(--bg-black-900); */
-    background: url(https://i.pinimg.com/originals/59/69/84/59698460a33a71e42ddf46e185e17737.gif);
-    background-size: cover;
+    background: var(--bg-black-900);
+    /* background: url(https://i.pinimg.com/originals/59/69/84/59698460a33a71e42ddf46e185e17737.gif);
+    background-size: cover; */
     min-height: 100vh;
     display: block;
     padding: 0 30px;
