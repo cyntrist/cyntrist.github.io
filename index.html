@@ -6,19 +6,381 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="./assets/img/favicon.png">
-  <link rel="stylesheet" href="./src/styles/index.css">
-  <script src="./src/scripts/index.js"></script>
   <title>Cynthia Tristán</title>
-  <!--- Boxicons -->
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-  <!--- Unicons -->
-  <link href='https://unicons.iconscout.com/release/v4.0.0/css/line.css' rel='stylesheet'>
+  <!-- Estilo inicial -->
+  <link rel="stylesheet" href="./src/styles/index.css">
+
+
+
+  <!-- Iconos -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
 <body>
-  <div id="root"></div>
+  <div class="main-container">
+
+    <!-- SIDEBAR -->
+    <div class="aside">
+      <div class="nav-toggler">
+        <span></span>
+      </div>
+
+      <ul class="nav">
+        <li><a href="#home" class="active"><i class="fa fa-home"></i>Home</a></li>
+        <li><a href="#about"><i class="fa fa-user"></i>About</a></li>
+        <li><a href="#games"><i class="fa fa-list"></i>Games</a></li>
+        <li><a href="#contact"><i class="fa fa-comments"></i>Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="main-content">
+
+      <!-- HOME -->
+      <section class="home active section" id="home">
+        <div class="container">
+          <div class="row">
+            <div class="home-img padd-15">
+              <img src="assets/img/mug1-square.jpg" alt="¡Mi cara!">
+            </div>
+
+            <div class="home-info padd-15">
+              <h3 class="hello"><span class="name">Cynthia Tristán</span></h3>
+              <h3 class="my-profession">Game developer</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quo ea commodi autem eius id error.
+                Corporis inventore adipisci hic sequi! Blanditiis architecto reprehenderit rerum assumenda, illum
+                aliquam quae dolore nobis laudantium incidunt maiores harum officiis animi commodi! Ipsam
+                exercitationem molestias, non et velit facilis cupiditate, ducimus, dolor harum explicabo cum
+                necessitatibus obcaecati minima dignissimos.</p>
+              <a href="#" class="btn">Download CV</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- ABOUT -->
+      <section class="about section" id="about">
+        <div class="container">
+          <div class="row">
+            <div class="section-title padd-15">
+              <h2>About Me</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="about-content padd-15">
+              <div class="row">
+                <div class="about-text padd-15">
+                  <h3><span>Game Dev</span></h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quo ea commodi autem eius id error.
+                    Corporis inventore adipisci hic sequi! Blanditiis architecto reprehenderit rerum assumenda, illum
+                    aliquam quae dolore nobis laudantium incidunt maiores harum officiis animi commodi! Ipsam
+                    exercitationem molestias, non et velit facilis cupiditate, ducimus, dolor harum explicabo cum
+                    necessitatibus obcaecati minima dignissimos.</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="personal-info padd-15">
+                  <div class="row">
+                    <div class="info-item padd-15">
+                      <p>Age: <span>24</span></p>
+                    </div>
+                    <div class="info-item padd-15">
+                      <p>E-mail: <span>cyntrist@ucm.es</span></p>
+                    </div>
+                    <div class="info-item padd-15">
+                      <p>Degree: <span>Game Development</span></p>
+                    </div>
+                    <div class="info-item padd-15">
+                      <p>City: <span>Islamabad</span></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="buttons padd-15">
+                      <a href="#contact" data-section-index="1" class="btn hire-me">Download CV</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="skills padd-15">
+                  <div class="row">
+                    <div class="skill-item padd-15">
+                      <h5>JS</h5>
+                      <div class="progress">
+                        <div class="progress-in" style="width: 86%;"></div>
+                        <div class="skill-percent">86%</div>
+                      </div>
+                    </div>
+                    <div class="skill-item padd-15">
+                      <h5>PHP</h5>
+                      <div class="progress">
+                        <div class="progress-in" style="width: 66%;"></div>
+                        <div class="skill-percent">66%</div>
+                      </div>
+                    </div>
+                    <div class="skill-item padd-15">
+                      <h5>HTML</h5>
+                      <div class="progress">
+                        <div class="progress-in" style="width: 96%;"></div>
+                        <div class="skill-percent">96%</div>
+                      </div>
+                    </div>
+                    <div class="skill-item padd-15">
+                      <h5>Bootstrap</h5>
+                      <div class="progress">
+                        <div class="progress-in" style="width: 76%;"></div>
+                        <div class="skill-percent">76%</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Education -->
+              <div class="row">
+                <div class="education padd-15">
+                  <h3 class="title">Education</h3>
+                  <div class="row">
+                    <div class="timeline-box padd-15">
+                      <div class="timeline shadow-dark">
+                        <!-- ===== timeline item ===== -->
+                        <div class="timeline-item">
+                          <div class="circle-dot"></div>
+                          <h3 class="timeline-date">
+                            <i class="fa fa-calendar"></i> 2013 - 2015
+                          </h3>
+                          <h4 class="timeline-title">Master in Computer Science</h4>
+                          <p class="timeline-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, maiores.
+                            Facere, minus? Quam minus autem quidem similique dignissimos cumque dolorum quis optio
+                            blanditiis, doloremque veritatis.</p>
+                        </div>
+                        <!-- ===== timeline item ===== -->
+                        <div class="timeline-item">
+                          <div class="circle-dot"></div>
+                          <h3 class="timeline-date">
+                            <i class="fa fa-calendar"></i> 2013 - 2015
+                          </h3>
+                          <h4 class="timeline-title">Master in Computer Science</h4>
+                          <p class="timeline-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, maiores.
+                            Facere, minus? Quam minus autem quidem similique dignissimos cumque dolorum quis optio
+                            blanditiis, doloremque veritatis.</p>
+                        </div>
+                        <!-- ===== timeline item ===== -->
+                        <div class="timeline-item">
+                          <div class="circle-dot"></div>
+                          <h3 class="timeline-date">
+                            <i class="fa fa-calendar"></i> 2013 - 2015
+                          </h3>
+                          <h4 class="timeline-title">Master in Computer Science</h4>
+                          <p class="timeline-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, maiores.
+                            Facere, minus? Quam minus autem quidem similique dignissimos cumque dolorum quis optio
+                            blanditiis, doloremque veritatis.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Experience -->
+                <div class="experience padd-15">
+                  <h3 class="title">Experience</h3>
+                  <div class="row">
+                    <div class="timeline-box padd-15">
+                      <div class="timeline shadow-dark">
+                        <!-- ===== timeline item ===== -->
+                        <div class="timeline-item">
+                          <div class="circle-dot"></div>
+                          <h3 class="timeline-date">
+                            <i class="fa fa-calendar"></i> 2013 - 2015
+                          </h3>
+                          <h4 class="timeline-title">Master in Computer Science</h4>
+                          <p class="timeline-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, maiores.
+                            Facere, minus? Quam minus autem quidem similique dignissimos cumque dolorum quis optio
+                            blanditiis, doloremque veritatis.</p>
+                        </div>
+                        <!-- ===== timeline item ===== -->
+                        <div class="timeline-item">
+                          <div class="circle-dot"></div>
+                          <h3 class="timeline-date">
+                            <i class="fa fa-calendar"></i> 2013 - 2015
+                          </h3>
+                          <h4 class="timeline-title">Master in Computer Science</h4>
+                          <p class="timeline-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, maiores.
+                            Facere, minus? Quam minus autem quidem similique dignissimos cumque dolorum quis optio
+                            blanditiis, doloremque veritatis.</p>
+                        </div>
+                        <!-- ===== timeline item ===== -->
+                        <div class="timeline-item">
+                          <div class="circle-dot"></div>
+                          <h3 class="timeline-date">
+                            <i class="fa fa-calendar"></i> 2013 - 2015
+                          </h3>
+                          <h4 class="timeline-title">Master in Computer Science</h4>
+                          <p class="timeline-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, maiores.
+                            Facere, minus? Quam minus autem quidem similique dignissimos cumque dolorum quis optio
+                            blanditiis, doloremque veritatis.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+      <!-- Projects -->
+      <section class="games section" id="games">
+        <div class="container">
+          <div class="row">
+            <div class="section-title padd-15">
+              <h2>My Games</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="games-heading padd-15">
+              <h2>My Latest Games:</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="games-item padd-15">
+              <div class="games-item-inner shadow-dark">
+                <div class="games-img">
+                  <img src="images/games/games-1.jpg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="games-item padd-15">
+              <div class="games-item-inner shadow-dark">
+                <div class="games-img">
+                  <img src="images/games/games-2.jpg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="games-item padd-15">
+              <div class="games-item-inner shadow-dark">
+                <div class="games-img">
+                  <img src="images/games/games-3.jpg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="games-item padd-15">
+              <div class="games-item-inner shadow-dark">
+                <div class="games-img">
+                  <img src="images/games/games-4.jpg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="games-item padd-15">
+              <div class="games-item-inner shadow-dark">
+                <div class="games-img">
+                  <img src="images/games/games-5.jpg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="games-item padd-15">
+              <div class="games-item-inner shadow-dark">
+                <div class="games-img">
+                  <img src="images/games/games-6.jpg" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+      <!-- Contact -->
+      <section class="contact section" id="contact">
+        <div class="container">
+
+          <div class="row">
+            <div class="section-title padd-15">
+              <h2>Contact</h2>
+            </div>
+          </div>
+
+          <h3 class="contact-title padd-15">Title</h3>
+          <h4 class="contact-sub-title padd-15">Subtitle</h4>
+          <div class="row">
+            <div class="contact-info-item padd-15">
+              <div class="icon"><i class="fa fa-envelope"></i></div>
+              <h4>Email</h4>
+              <p>info@gmail.com</p>
+            </div>
+          </div>
+
+          <h3 class="contact-title padd-15">Title</h3>
+          <h4 class="contact-sub-title padd-15">Subtitle</h4>
+          <div class="row">
+            <div class="contact-form padd-15">
+
+              <div class="row">
+                <div class="form-item col-6 padd-15">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Name">
+                  </div>
+                </div>
+
+                <div class="form-item col-6 padd-15">
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-item col-12 padd-15">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Subject">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-item col-12 padd-15">
+                  <div class="form-group">
+                    <textarea name="" class="form-control" id="" placeholder="Message"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-item col-12 padd-15">
+                  <button type="submit" class="btn">Send Message</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Scripts -->
+  <script src="./src/scripts/index.js"></script>
 </body>
 
 </html>
