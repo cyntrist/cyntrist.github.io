@@ -791,7 +791,10 @@ h3.my-profession
     .home .home-img img {
         height: 350px;
     }
-
+    .home.active {
+        /* display: grid;
+        justify-items: center; */
+    }
     /* .home .home-img {
         width: auto;
         margin-left: 0;
