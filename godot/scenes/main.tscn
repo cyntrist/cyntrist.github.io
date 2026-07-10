@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://drixu63wx6sjw"]
+
+[ext_resource type="Texture2D" uid="uid://ba4jh8du1mtc6" path="res://assets/images/glow.svg" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://bmgjaxthpjqr" path="res://scripts/follow_cursor.gd" id="2_sugp2"]
+[ext_resource type="Material" uid="uid://crx4xo0d6o5b2" path="res://assets/external/BinbunGlassUI/src/materials/blur_glass_ui.tres" id="4_o6xl0"]
+[ext_resource type="Shader" uid="uid://b2u82td54h8j4" path="res://assets/shaders/deep_space.gdshader" id="6_choun"]
+[ext_resource type="Shader" uid="uid://pqjl2e68f72d" path="res://assets/shaders/liquid_glass.gdshader" id="6_tipki"]
+[ext_resource type="StyleBox" uid="uid://bawjkxfgpmcw" path="res://assets/external/BinbunGlassUI/src/styleboxes/thin/base_thin.tres" id="7_tipki"]
+[ext_resource type="Texture2D" uid="uid://8p1ndhjr8yk5" path="res://assets/images/noise.jpg" id="7_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://daivq422dnh8w" path="res://assets/images/tab.png" id="8_tipki"]
+[ext_resource type="Script" uid="uid://ia4jqyk5p5fn" path="res://scenes/background.gd" id="9_a8y0u"]
+[ext_resource type="Shader" uid="uid://cp56g87sva5nt" path="res://assets/external/BinbunGlassUI/src/shader/glass_panel.gdshader" id="11_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://fw8ltmb3tv7l" path="res://assets/images/folder2_mask.png" id="12_eb6dy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rf68k"]
+shader = ExtResource("6_choun")
+shader_parameter/stars_on = true
+shader_parameter/stars_flicker = true
+shader_parameter/timeScaleFactor = 0.04
+shader_parameter/noise_texture = ExtResource("7_ya4ey")
+shader_parameter/cycle_color = false
+shader_parameter/colour_muiltiplier = Color(1, 1, 1, 1)
+shader_parameter/colour_muiltiplier2 = Color(0.15294118, 0.36862746, 0.8392157, 1)
+shader_parameter/brightness = 1.2
+shader_parameter/clouds_resolution = 10.0
+shader_parameter/clouds_intesity = 0.0
+shader_parameter/waveyness = 0.5
+shader_parameter/fragmentation = 7.600000361
+shader_parameter/distortion = 1.5
+shader_parameter/clouds_alpha = 0.5
+shader_parameter/movement = 1.15000000945407
+shader_parameter/blur = 1.4
+shader_parameter/blur2 = 0.00999999977648
+shader_parameter/bg_speed = 0.1
+shader_parameter/mid_speed = 0.5
+shader_parameter/fg_speed = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_207rr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wo8xi"]
+shader = ExtResource("6_tipki")
+shader_parameter/blur = 3.5
+shader_parameter/warp_intensity = 0.4
+shader_parameter/strength_x = 12.0
+shader_parameter/strength_y = 12.0
+shader_parameter/offset_x = 0.0
+shader_parameter/offset_y = 0.0
+shader_parameter/corner_radius = 0.050000002375
+shader_parameter/edge_smoothness = 1.0
+shader_parameter/tint = Color(0, 0, 0, 0.28235295)
+shader_parameter/edge_highlight = Color(1, 1, 1, 0.3)
+shader_parameter/edge_width = 1.5
+shader_parameter/chromatic_strength = 5.0
+shader_parameter/top_highlight_color = Color(1, 1, 1, 1)
+shader_parameter/top_highlight_strength = 0.08
+shader_parameter/top_highlight_height = 0.2390000113525
+shader_parameter/top_highlight_falloff = 2.00000009174012
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jnuk5"]
+shader = ExtResource("11_eb6dy")
+shader_parameter/brightness = 0.1
+shader_parameter/chromatic_shift_amount = 0.2
+shader_parameter/bend_amount = 0.4
+shader_parameter/blur_amount = 2.0
+shader_parameter/grain_amount = 0.05
+shader_parameter/curve_light_blend = 0.35
+shader_parameter/rim_light_blend = 0.75
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node" unique_id=462731323]
+
+[node name="Shaders" type="Control" parent="." unique_id=1917178286]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="Shaders" unique_id=300433570]
+material = SubResource("ShaderMaterial_rf68k")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Shaders" unique_id=715559797]
+visible = false
+material = ExtResource("4_o6xl0")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -926.0
+offset_top = -326.0
+offset_right = 926.0
+offset_bottom = 509.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_position = Vector2(48, 48)
+theme_override_styles/normal = ExtResource("7_tipki")
+theme_override_styles/hover = ExtResource("7_tipki")
+
+[node name="Button2" type="Button" parent="Shaders" unique_id=797577902]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -926.0
+offset_top = -326.0
+offset_right = 926.0
+offset_bottom = 509.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_position = Vector2(48, 48)
+theme_override_styles/normal = SubResource("StyleBoxFlat_207rr")
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="Shaders/Button2" unique_id=260319027]
+material = SubResource("ShaderMaterial_wo8xi")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_a8y0u")
+
+[node name="CursorGlow" type="Sprite2D" parent="." unique_id=771183719]
+visible = false
+self_modulate = Color(0.15294118, 0.36862746, 0.8392157, 1)
+scale = Vector2(0.66, 0.66)
+texture = ExtResource("1_0wfyh")
+script = ExtResource("2_sugp2")
+speed = 2.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1607433050]
+visible = false
+offset_left = -471.0
+offset_top = 159.0
+offset_right = 117.0
+offset_bottom = 637.0
+texture = ExtResource("8_tipki")
+patch_margin_left = 210
+patch_margin_top = 164
+patch_margin_right = 210
+patch_margin_bottom = 64
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="." unique_id=230182788]
+visible = false
+material = SubResource("ShaderMaterial_jnuk5")
+offset_left = 35.0
+offset_top = 76.0
+offset_right = 1882.0
+offset_bottom = 913.0
+texture = ExtResource("12_eb6dy")
+patch_margin_left = 100
+patch_margin_top = 164
+patch_margin_right = 537
+patch_margin_bottom = 64
