@@ -59,12 +59,23 @@ body::after {
 }
 
 .slice {
-    border: 10px solid transparent;
-    padding: 15px;
+    --slice-top: 62px;
+    --slice-right: 99px;
+    --slice-bottom: 62px;
+    --slice-left: 99px;
+
+    --frame-top: 24px;
+    --frame-right: 40px;
+    --frame-bottom: 24px;
+    --frame-left: 40px;
+
+    border-style: solid;
+    border-width: var(--frame-top) var(--frame-right) var(--frame-bottom) var(--frame-left);
     border-image-source: url("../../assets/img/nineslice.png");
-    /* border-image-repeat: round; */
-    border-image-slice: 10% 30% fill;
-    /* border-image-width: 20px; */
+    border-image-slice: 15% 15% fill;
+    /* border-image-slice: var(--slice-top) var(--slice-right) var(--slice-bottom) var(--slice-left) fill; */
+    border-image-width: var(--frame-top) var(--frame-right) var(--frame-bottom) var(--frame-left);
+    border-image-repeat: stretch;
 }
 
 .header {
