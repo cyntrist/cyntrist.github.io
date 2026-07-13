@@ -1,76 +1,42 @@
-// Nav-bar behaviour
-const nav = document.querySelector(".nav"),
-    navList = nav.querySelectorAll("li"),
-    totalNavList = navList.length,
-    allSection = document.querySelectorAll(".section"),
-    totalSection = allSection.length;
-    
-for (let i = 0; i < totalNavList; i++) {
-    const a = navList[i].querySelector("a");
-    a.addEventListener("click", function () {
-        removeBackSection();
-        for (let j = 0; j < totalNavList; j++) {
-            if (navList[j].querySelector("a").classList.contains("active")) {
-                addBackSection(j);
-                // allSection[j].classList.add("back-section");
-            }
-            navList[j].querySelector("a").classList.remove("active");
-        }
-        this.classList.add("active")
-        showSection(this);
-        if (window.innerWidth < 1200) {
-            asideSectionTogglerBtn();
-        }
-    })
-}
+const root = document.documentElement;
 
-function removeBackSection() {
-    for (let i = 0; i < totalSection; i++) {
-        allSection[i].classList.remove("back-section");
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  let x0 = 0;
+  let y0 = 0;
+  let x1 = 0;
+  let y1 = 0;
+  let angle = -Math.PI / 4;
+  let elapsed = 0;
+  let previousTime = 0;
+
+  // 33px / (0.012 - 0.005)px/ms: la capa rápida adelanta un tile completo.
+  const directionChangeInterval = 4714;
+  const directionStep = Math.PI / 4;
+  const speed0 = 0.005;
+  const speed1 = 0.012;
+
+  function animateBackground(time) {
+    const delta = Math.min(time - previousTime, 50);
+    previousTime = time;
+    elapsed += delta;
+
+    while (elapsed >= directionChangeInterval) {
+      angle += directionStep;
+      elapsed -= directionChangeInterval;
     }
-}
 
-function addBackSection(num) {
-    allSection[num].classList.add("back-section");
-}
+    x0 += Math.cos(angle) * speed0 * delta;
+    y0 += Math.sin(angle) * speed0 * delta;
+    x1 += Math.cos(angle) * speed1 * delta;
+    y1 += Math.sin(angle) * speed1 * delta;
 
-function showSection(element) {
-    for (let i = 0; i < totalSection; i++) {
-        allSection[i].classList.remove("active");
-    }
-    const target = element.getAttribute("href").split("#")[1];
-    document.querySelector("#" + target).classList.add("active")
-}
+    root.style.setProperty("--bg0-x", `${x0}px`);
+    root.style.setProperty("--bg0-y", `${y0}px`);
+    root.style.setProperty("--bg1-x", `${x1}px`);
+    root.style.setProperty("--bg1-y", `${y1}px`);
 
-function updateNav(element) {
-    for (let i = 0; i < totalNavList; i++) {
-        navList[i].querySelector("a").classList.remove("active");
-        const target = element.getAttribute("href").split("#")[1];
-        if (target === navList[i].querySelector("a").getAttribute("href").split("#")[1]) {
-            navList[i].querySelector("a").classList.add("active");
-        }
-    }
-}
+    window.requestAnimationFrame(animateBackground);
+  }
 
-document.querySelector(".hire-me").addEventListener("click", function () {
-    const sectionIndex = this.getAttribute("data-section-index");
-    //console.log(sectionIndex);
-    showSection(this);
-    updateNav(this);
-    removeBackSection();
-    addBackSection(sectionIndex);
-})
-
-const navTogglerBtn = document.querySelector(".nav-toggler"),
-    aside = document.querySelector(".aside");
-navTogglerBtn.addEventListener("click", () => {
-    asideSectionTogglerBtn();
-})
-
-function asideSectionTogglerBtn() {
-    aside.classList.toggle("open");
-    navTogglerBtn.classList.toggle("open");
-    for (let i = 0; i < totalSection; i++) {
-        allSection[i].classList.toggle("open");
-    }
+  window.requestAnimationFrame(animateBackground);
 }
