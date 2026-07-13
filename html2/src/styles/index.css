@@ -13,6 +13,8 @@
 
 * {
     box-sizing: border-box;
+    font-family: 'Cascadia Code';
+    /* font-size: 12px; */
 }
 
 a {
@@ -63,33 +65,102 @@ body::after {
     --slice-right: 99px;
     --slice-bottom: 62px;
     --slice-left: 99px;
-
     --frame-top: 24px;
     --frame-right: 40px;
     --frame-bottom: 24px;
     --frame-left: 40px;
-
-    border-style: solid;
+    /* border-style: solid; */
     border-width: var(--frame-top) var(--frame-right) var(--frame-bottom) var(--frame-left);
     border-image-source: url("../../assets/img/nineslice.png");
     border-image-slice: 15% 15% fill;
     /* border-image-slice: var(--slice-top) var(--slice-right) var(--slice-bottom) var(--slice-left) fill; */
     border-image-width: var(--frame-top) var(--frame-right) var(--frame-bottom) var(--frame-left);
     border-image-repeat: stretch;
-}
 
-.header {
-    align-self: stretch;
-    padding-top: 48px;
-    padding-bottom: 24px;
-    padding-left: 378px;
-    padding-right: 378px;
-    background: var(--negro-cynthia);
+    padding: 16px 48px;
+    /* margin-left: 20%;
+    margin-right: 20%; */
+    /* width: fit-content; */
+    width: 66vw;
+    height: fit-content;
+    /* gap: 16px; */
+
+    /* inline-size: fit-content;
+    block-size: fit-content; */
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    display: block;
+}
+
+.tdiv {
+    align-self: stretch;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    display: flex;
+}
+
+.tdiv .text {
+    text-align: left;
+    color: var(--coral-cynthia);
+    font-weight: bold;
+    font-size: 125%;
+    word-wrap: break-word;
+}
+
+.cdiv {
+    align-self: stretch;
+    flex: 1 1 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex
+}
+
+.cdiv .text {
+    text-align: left;
+    color: var(--blanco-cynthia);
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.ddiv {
+    align-self: stretch;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex
+}
+
+.ddiv .text {
+    text-align: center;
+    color: var(--blanco-cynthia);
+    font-size: 24px;
+    font-weight: 400;
+    word-wrap: break-word
+}
+
+.header {
+    align-items: center;
+    align-self: stretch;
+    padding-top: 24px;
+    /* padding-bottom: 24px; */
+    /* padding-left: 378px;
+    padding-right: 378px; */
+    background: var(--negro-cynthia);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
     display: flex
+}
+
+.header img {
+    width: 35.5vw;
+    height: auto;
+    min-width: 150px;
+    margin: auto;
 }
 
 .bar {
@@ -100,7 +171,7 @@ body::after {
     background: var(--negro-cynthia);
     justify-content: center;
     align-items: flex-start;
-    gap: 24px;
+    gap: 3vw;
     display: inline-flex
 }
 
@@ -109,10 +180,11 @@ body::after {
     display: flex;
     flex-direction: column;
     color: var(--roto-cynthia);
-    font-size: 150%;
+    /* font-size: 150%; */
+    font-size: 4.5vmin;
     font-family: Cascadia Code;
     font-style: italic;
-    font-weight: 400;
+    font-weight: bold;
     word-wrap: break-word
 }
 
@@ -126,13 +198,13 @@ body::after {
     background: var(--negro-cynthia);
     justify-content: center;
     align-items: flex-start;
-    gap: 24px;
+    gap: 3vw;
     display: inline-flex
 }
 
 
 .contents {
-    margin: 24px 0 24px 0;
+    margin: 42px 0;
     align-self: stretch;
     flex-direction: column;
     justify-content: flex-start;
@@ -158,7 +230,6 @@ footer {
     margin-right: 8px;
     text-align: right;
     color: rgba(222.31, 216.24, 198.79, 0.57);
-    font-family: Cascadia Code;
     font-weight: 400;
     word-wrap: break-word
 }
@@ -172,5 +243,14 @@ footer {
     justify-content: flex-start;
     align-items: flex-start;
     gap: 10px;
-    display: flex
+    display: flex;
+    font-size: 75%;
+}
+
+hr {
+    color: var(--blanco-cynthia);
+    border-color: var(--blanco-cynthia);
+    margin-top: 0.66em;
+    margin-bottom: 0.66em;
+    width: 8px;
 }
