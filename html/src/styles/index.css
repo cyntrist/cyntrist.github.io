@@ -81,7 +81,9 @@ body::after {
     /* margin-left: 20%;
     margin-right: 20%; */
     /* width: fit-content; */
-    width: 66vw;
+    width: 100%;
+    max-width: 800px;
+    /* max-width: 66vw; */
     height: fit-content;
     /* gap: 16px; */
 
