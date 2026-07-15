@@ -9,7 +9,6 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   let elapsed = 0;
   let previousTime = 0;
 
-  // 33px / (0.012 - 0.005)px/ms: la capa rápida adelanta un tile completo.
   const directionChangeInterval = 4714;
   const directionStep = Math.PI / 4;
   const speed0 = 0.005;
