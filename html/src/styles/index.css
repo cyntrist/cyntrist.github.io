@@ -97,10 +97,6 @@ body::after {
     scroll-margin-top: 10vmin;
 }
 
-@media (min-width: 600px) {
-  .slice {width: 66vw;}
-}
-
 .tdiv {
     align-self: stretch;
     flex-direction: column;
@@ -165,7 +161,7 @@ body::after {
 }
 
 .header img {
-    width: 35.5vw;
+    width: 70vw;
     height: auto;
     min-width: 150px;
     margin: auto;
@@ -269,4 +265,9 @@ hr {
     margin-top: 0.66em;
     margin-bottom: 0.66em;
     width: 8px;
+}
+
+@media (min-width: 600px) {
+  .slice {width: 66vw;}
+  .header img {width: 35.5vmin;}
 }
