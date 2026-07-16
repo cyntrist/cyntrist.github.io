@@ -268,7 +268,36 @@ hr {
     width: 8px;
 }
 
+.lang {
+    color: var(--blanco-cynthia);
+    font-weight: bold;
+    font-size: 125%;
+    padding: 12px;
+    background-color: var(--negro-cynthia);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--blanco-cynthia);
+    margin-bottom: -8px;
+
+    a {
+        color: var(--azul-cynthia);
+    }
+
+    a[aria-current="true"] {
+        color: var(--lila-cynthia);
+    }
+}
+
 @media (min-width: 600px) {
-  .slice {width: 66vw;}
-  .header img {width: 35.5vw;}
+    .slice {
+        width: 66vw;
+    }
+
+    .header img {
+        width: 35.5vw;
+    }
+}
+
+#domino {
+    color: var(--verde-nieves)
 }
