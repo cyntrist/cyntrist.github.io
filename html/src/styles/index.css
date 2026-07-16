@@ -123,6 +123,7 @@ body::after {
 }
 
 .cdiv .text {
+    width: 100%;
     text-align: left;
     color: var(--blanco-cynthia);
     font-weight: 400;
@@ -269,5 +270,5 @@ hr {
 
 @media (min-width: 600px) {
   .slice {width: 66vw;}
-  .header img {width: 35.5vmin;}
+  .header img {width: 35.5vw;}
 }
