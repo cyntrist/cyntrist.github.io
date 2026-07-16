@@ -14,9 +14,12 @@ const translations = {
     skillsText: "Proin porttitor at ante sit amet feugiat. Ut nec nisi urna. Sed ultricies lacus lectus, quis euismod augue condimentum vitae. Nunc efficitur neque eget turpis posuere, in fringilla odio rhoncus. Maecenas sed quam dui. Maecenas laoreet erat orci, malesuada egestas purus hendrerit ut.\n\nNulla iaculis ullamcorper euismod. Etiam efficitur fringilla diam, ac placerat sapien tempus porttitor. Nulla scelerisque leo quis leo pulvinar, et fermentum lacus ornare. In pulvinar pharetra magna.",
     projectsText: "Proin porttitor at ante sit amet feugiat. Ut nec nisi urna. Sed ultricies lacus lectus, quis euismod augue condimentum vitae. Nunc efficitur neque eget turpis posuere, in fringilla odio rhoncus. Maecenas sed quam dui. Maecenas laoreet erat orci, malesuada egestas purus hendrerit ut.\n\nNulla iaculis ullamcorper euismod. Etiam efficitur fringilla diam, ac placerat sapien tempus porttitor. Nulla scelerisque leo quis leo pulvinar, et fermentum lacus ornare. In pulvinar pharetra magna.",
     linksText: "Proin porttitor at ante sit amet feugiat. Ut nec nisi urna. Sed ultricies lacus lectus, quis euismod augue condimentum vitae. Nunc efficitur neque eget turpis posuere, in fringilla odio rhoncus. Maecenas sed quam dui. Maecenas laoreet erat orci, malesuada egestas purus hendrerit ut.\n\nNulla iaculis ullamcorper euismod. Etiam efficitur fringilla diam, ac placerat sapien tempus porttitor. Nulla scelerisque leo quis leo pulvinar, et fermentum lacus ornare. In pulvinar pharetra magna.",
+    resume: "Resume",
+    mail:"Mail",
 
     footerDate: "July 2026<br>Cynthia Tristán Álvarez",
     footerText: "Made with Figma in HTML, CSS and JS<br>source code on <a href=\"https://github.com/cyntrist/cyntrist.github.io\">Github</a>"
+
   },
   es: {
     roleDeveloper: "Game developer",
@@ -29,6 +32,8 @@ const translations = {
     skillsText: "Texto en en español.\n\nSalto de línea.",
     projectsText: "Texto en en español.\n\nSalto de línea.",
     linksText: "Texto en en español.\n\nSalto de línea.",
+    resume:"CV",
+    mail:"Correo",
     footerDate: "Julio de 2026<br>Cynthia Tristán Álvarez",
     footerText: "Hecho con Figma en HTML, CSS y JS<br>código fuente en <a href=\"https://github.com/cyntrist/cyntrist.github.io\">Github</a>"
   }

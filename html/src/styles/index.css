@@ -114,11 +114,12 @@ body::after {
 }
 
 .cdiv {
+    flex-direction: column;
     align-self: stretch;
     flex: 1 1 0;
-    flex-direction: column;
+    gap: 12px;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     display: flex
 }
 
@@ -128,6 +129,45 @@ body::after {
     color: var(--blanco-cynthia);
     font-weight: 400;
     word-wrap: break-word;
+}
+
+.mug {
+    width: 40%;
+    height: auto;
+
+    img {
+        width: 40%;
+        height: auto;
+    }
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-self: center;
+    gap: 12px;
+}
+
+.button {
+    border: none;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid var(--negro-cynthia);
+    background-color: var(--blanco-cynthia);
+    color: var(--negro-cynthia);
+}
+
+.button:hover {
+    border: 2px solid var(--blanco-cynthia);
+    background-color: var(--negro-cynthia);
+    color: var(--blanco-cynthia);
 }
 
 .ddiv {
@@ -295,6 +335,14 @@ hr {
 
     .header img {
         width: 35.5vw;
+    }
+
+    .cdiv {
+        flex-direction: row;
+    }
+
+    .buttons{
+        width: 25%;
     }
 }
 
