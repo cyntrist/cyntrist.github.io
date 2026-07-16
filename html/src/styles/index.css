@@ -226,7 +226,10 @@ footer {
     display: inline-flex;
     width: 100%;
     padding: 0;
+    color: rgba(222.31, 216.24, 198.79, 0.57);
     display: block;
+    font-weight: 400;
+    word-wrap: break-word
 }
 
 .footer-text {
@@ -234,9 +237,13 @@ footer {
     margin-left: auto;
     margin-right: 8px;
     text-align: right;
-    color: rgba(222.31, 216.24, 198.79, 0.57);
-    font-weight: 400;
-    word-wrap: break-word
+}
+
+.footer-date {
+    display: block;
+    margin-right: auto;
+    margin-left: 8px;
+    text-align: left;
 }
 
 .footer-div {
