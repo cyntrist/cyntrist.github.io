@@ -82,7 +82,7 @@ body::after {
     margin-right: 20%; */
     /* width: fit-content; */
     width: 100%;
-    max-width: 800px;
+    /* max-width: 800px; */
     /* max-width: 66vw; */
     height: fit-content;
     /* gap: 16px; */
@@ -95,6 +95,10 @@ body::after {
     display: block;
 
     scroll-margin-top: 10vmin;
+}
+
+@media (min-width: 600px) {
+  .slice {width: 66vw;}
 }
 
 .tdiv {
