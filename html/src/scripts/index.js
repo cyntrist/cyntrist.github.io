@@ -1,5 +1,10 @@
 const root = document.documentElement;
 
+const resumeFiles = {
+  en: "./assets/files/cynthiatristan-cv-en.pdf",
+  es: "./assets/files/cynthiatristan-cv-es.pdf"
+};
+
 // LOCALIZACION
 const translations = {
   en: {
@@ -49,6 +54,11 @@ function setLanguage(language) {
   document.querySelectorAll("[data-language]").forEach((link) => {
     link.setAttribute("aria-current", link.dataset.language === selectedLanguage ? "true" : "false");
   });
+  const resumeLink = document.querySelector(".resume");
+  if (resumeLink) {
+    resumeLink.href = resumeFiles[selectedLanguage];
+    resumeLink.download = resumeFiles[selectedLanguage].split("/").pop();
+  }
   localStorage.setItem("preferred-language", selectedLanguage);
 }
 
