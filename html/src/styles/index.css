@@ -132,13 +132,9 @@ body::after {
 }
 
 .mug {
-    width: 40%;
-    height: auto;
-
-    img {
-        width: 40%;
-        height: auto;
-    }
+    width: 100%;
+    height: min-content;
+    align-self: center;
 }
 
 .buttons {
@@ -337,14 +333,27 @@ hr {
         width: 35.5vw;
     }
 
+    .buttons {
+        width: 25%;
+    }
+
     .cdiv {
         flex-direction: row;
     }
 
-    .buttons{
-        width: 25%;
-    }
+    .mug {
+        width: 33%;
+    } 
 }
+
+/* @media (min-width: 1000px) {
+    .cdiv {
+        flex-direction: row;
+    }
+    .mug {
+        width: 33%;
+    }
+} */
 
 #domino {
     color: var(--verde-nieves)
