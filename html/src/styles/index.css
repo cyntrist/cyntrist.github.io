@@ -383,7 +383,7 @@ hr {
 form {
     /* Just to center the form on the page */
     margin: 0 auto;
-    width: min(100%, 520px);
+    width: min(100%, 512px);
     display: grid;
     grid-template-columns: max-content minmax(0, 1fr);
     column-gap: 1.25em;
@@ -426,21 +426,21 @@ textarea {
     resize: vertical;
 }
 
-form>div {
+form > div {
     display: contents;
 }
 
-form>.send {
+form > .send {
     grid-column: 1 / -1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-form>.send>button {
+form > .send > button {
     /* min-width: 12rem; */
     border: none;
-    padding: 8px;
+    padding: 8px 16px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -453,8 +453,14 @@ form>.send>button {
 }
 
 
-form>.send>button:hover {
+form > .send > button:hover {
     border: 2px solid var(--blanco-cynthia);
     background-color: var(--negro-cynthia);
     color: var(--blanco-cynthia);
+}
+
+.contact-stitle {
+    color: var(--blanco-cynthia);
+    text-align: center;
+    margin-bottom: 16px;
 }

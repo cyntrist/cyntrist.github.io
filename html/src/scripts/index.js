@@ -23,6 +23,14 @@ const translations = {
     resume: "Resume",
     mail:"Mail",
 
+    contactFirst: "Get in touch via",
+    contactLast:"or fill this form:",
+    formName: "Name:",
+    formEmail: "Email:",
+    formSubject: "Subject:",
+    formMessage: "Message:",
+    formSend: "Send",
+
     footerDate: "August 2026<br>Cynthia Tristán Álvarez",
     footerText: "Made with Figma in HTML, CSS and JS<br>source code on <a href=\"https://github.com/cyntrist/cyntrist.github.io\">Github</a>"
 
@@ -40,6 +48,15 @@ const translations = {
     linksText: "Texto en en español.\n\nSalto de línea.",
     resume:"CV",
     mail:"Correo",
+
+    contactFirst: "Envía un correo a",
+    contactLast:"o rellena este formulario:",
+    formName: "Nombre:",
+    formEmail: "Correo:",
+    formSubject: "Asunto:",
+    formMessage: "Mensaje:",
+    formSend: "Enviar",
+
     footerDate: "Agosto de 2026<br>Cynthia Tristán Álvarez",
     footerText: "Hecho con Figma en HTML, CSS y JS<br>código fuente en <a href=\"https://github.com/cyntrist/cyntrist.github.io\">Github</a>"
   }
