@@ -9,6 +9,7 @@
     --azul-cynthia: #275ED6;
     --lila-cynthia: #DFB1F1;
     --verde-nieves: #71BC20;
+    --bg-size: 128px;
 }
 
 * {
@@ -44,7 +45,7 @@ body::after {
     position: fixed;
     inset: 0;
     background-repeat: repeat;
-    background-size: 48px 48px;
+    background-size: var(--bg-size);
     pointer-events: none;
 }
 
@@ -160,7 +161,9 @@ body::after {
     color: var(--negro-cynthia);
 }
 
-.button:hover {
+.button:hover,
+input,
+textarea {
     border: 2px solid var(--blanco-cynthia);
     background-color: var(--negro-cynthia);
     color: var(--blanco-cynthia);
@@ -223,11 +226,11 @@ body::after {
     flex-direction: column;
     color: var(--roto-cynthia);
     /* font-size: 150%; */
-    font-size: 4.5vmin;
+    font-size: 4vmin;
     font-family: Cascadia Code;
     font-style: italic;
     font-weight: bold;
-    word-wrap: break-word
+    word-wrap: break-word;
 }
 
 #navbar {
@@ -241,8 +244,14 @@ body::after {
     justify-content: center;
     align-items: flex-start;
     gap: 3vw;
-    display: inline-flex
+    display: inline-flex;
 }
+
+#navbar.navbar-es a[data-i18n] {
+    font-size: 3.9vmin;
+    /* letter-spacing: -0.04em; */
+}
+
 
 
 .contents {
@@ -343,7 +352,7 @@ hr {
 
     .mug {
         width: 33%;
-    } 
+    }
 }
 
 /* @media (min-width: 1000px) {
@@ -357,4 +366,95 @@ hr {
 
 #domino {
     color: var(--verde-nieves)
+}
+
+.contact-div {
+    color: var(--blanco-cynthia);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}
+
+
+
+
+form {
+    /* Just to center the form on the page */
+    margin: 0 auto;
+    width: min(100%, 520px);
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    column-gap: 1.25em;
+    row-gap: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+
+label {
+    /* To make sure that all label have the same size and are properly align */
+    display: block;
+    width: auto;
+    justify-self: end;
+    text-align: right;
+}
+
+input,
+textarea {
+    /* To give the same size to all text field */
+    width: 100%;
+    font-size: 100%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input {
+    height: 2em;
+}
+
+textarea {
+    /* To properly align multiline text field with their label */
+    vertical-align: top;
+
+    /* To give enough room to type some text */
+    height: 5em;
+
+    /* To allow users to resize any textarea vertically
+     It works only on Chrome, Firefox and Safari */
+    resize: vertical;
+}
+
+form>div {
+    display: contents;
+}
+
+form>.send {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form>.send>button {
+    /* min-width: 12rem; */
+    border: none;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 100%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid var(--negro-cynthia);
+    background-color: var(--blanco-cynthia);
+    color: var(--negro-cynthia);
+}
+
+
+form>.send>button:hover {
+    border: 2px solid var(--blanco-cynthia);
+    background-color: var(--negro-cynthia);
+    color: var(--blanco-cynthia);
 }
