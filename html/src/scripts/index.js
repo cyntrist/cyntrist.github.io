@@ -88,9 +88,18 @@ function setLanguage(language) {
   localStorage.setItem("preferred-language", selectedLanguage);
 }
 
+function initializeMailtoLinks() {
+  document.querySelectorAll("[data-user][data-domain]").forEach((link) => {
+    const user = link.dataset.user;
+    const domain = link.dataset.domain;
+    link.href = `mailto:${user}@${domain}`;
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const savedLanguage = localStorage.getItem("preferred-language");
   const browserLanguage = navigator.language.toLowerCase().startsWith("es") ? "es" : "en";
+  initializeMailtoLinks();
   setLanguage(savedLanguage || browserLanguage);
   document.querySelectorAll("[data-language]").forEach((link) => {
     link.addEventListener("click", (event) => {
