@@ -16,59 +16,199 @@
 
     <!-- header -->
     <div class="header">
-      <a href="https://cyntrist.github.io/"><img src="./assets/img/logo.png"/></a>
+      <a href="https://cyntrist.github.io/"><img src="./assets/img/logo_slow.gif" /></a>
     </div>
 
     <!-- bar -->
     <div class="bar">
-      <div class="bar-element">
-        </a>Game developer</div>
+      <div class="bar-element" data-i18n="roleDeveloper">Game developer</div>
       <div class="bar-element">
         ✦</div>
-      <div class="bar-element">
-        designer</div>
+      <div class="bar-element" data-i18n="roleDesigner">designer</div>
     </div>
 
     <div id="navbar">
       <div class="bar-element">
-        <a href="#profile">Profile</a></div>
+        <a href="#profile" data-i18n="profileTitle">Profile</a>
+      </div>
       <div class="bar-element">
         ✧</div>
       <div class="bar-element">
-        <a href="#skills">Skills</a></div>
+        <a href="#skills" data-i18n="skillsTitle">Skills</a>
+      </div>
       <div class="bar-element">
         ✧</div>
       <div class="bar-element">
-        <a href="#projects">Projects</a></div>
+        <a href="#projects" data-i18n="projectsTitle">Projects</a>
+      </div>
       <div class="bar-element">
         ✧</div>
       <div class="bar-element">
-        <a href="#links">Links</a></div>
+        <a href="#links" data-i18n="linksTitle">Links</a>
+      </div>
     </div>
 
     <!-- contents -->
     <div class="contents">
 
+      <!---->
+      <div class="lang">
+        <a href="#" data-language="en" lang="en" aria-label="English">EN</a> /
+        <a href="#" data-language="es" lang="es" aria-label="Español">ES</a>
+      </div>
+
+      <!---->
       <div class="slice" id="profile">
         <div class="tdiv">
           <div class="text">
-            Profile
+            <span data-i18n="profileTitle">Profile</span>
           </div>
-            <hr>
+          <hr>
         </div>
 
         <div class="cdiv">
-          
-          <div class="text">
-            Proin porttitor at ante sit amet feugiat. Ut nec nisi urna. Sed ultricies lacus lectus, quis euismod augue condimentum vitae. Nunc efficitur neque eget turpis posuere, in fringilla odio rhoncus. Maecenas sed quam dui. Maecenas laoreet erat orci, malesuada egestas purus hendrerit ut. <br> <br>Nulla iaculis ullamcorper euismod. Etiam efficitur fringilla diam, ac placerat sapien tempus porttitor. Nulla scelerisque leo quis leo pulvinar, et fermentum lacus ornare. In pulvinar pharetra magna. 
+          <img class="mug" src="./assets/img/mug2.png" />
+          <!-- <div class="mug">
+          </div> -->
+          <div class="text" data-i18n="profileText">
+            Proin porttitor at ante sit amet feugiat. Ut nec nisi urna. Sed ultricies lacus lectus, quis euismod augue
+            condimentum vitae. Nunc efficitur neque eget turpis posuere, in fringilla odio rhoncus. Maecenas sed quam
+            dui. Maecenas laoreet erat orci, malesuada egestas purus hendrerit ut. <br> <br>Nulla iaculis ullamcorper
+            euismod. Etiam efficitur fringilla diam, ac placerat sapien tempus porttitor. Nulla scelerisque leo quis leo
+            pulvinar, et fermentum lacus ornare. In pulvinar pharetra magna.
+          </div>
+          <div class="buttons">
+            <a href="./assets/files/cynthiatristan-cv-en.pdf" download="cynthiatristan-cv-en.pdf" class="button resume"
+              data-i18n="resume">Resume</a>
+            <!-- <a href="#" class="button mail" data-user="" data-domain="" data-i18n="mail">Mail</a> -->
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/cyntrist"
+              class="button github">GitHub</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://cyntrist.itch.io/"
+              class="button itch">itch.io</a>
           </div>
         </div>
 
         <div class="ddiv">
-            <hr>
+          <hr>
 
+          <div class="text" id="domino">
+            <b>🁫</b>
+          </div>
+        </div>
+      </div>
+
+      <!---->
+      <div class="slice" id="skills">
+        <div class="tdiv">
           <div class="text">
-            🁫
+            <span data-i18n="skillsTitle">Skills</span>
+          </div>
+          <hr>
+        </div>
+
+        <div class="cdiv">
+
+          <div class="text" data-i18n="skillsText">
+            Proin porttitor at ante sit amet feugiat. Ut nec nisi urna. Sed ultricies lacus lectus, quis euismod augue
+            condimentum vitae. Nunc efficitur neque eget turpis posuere, in fringilla odio rhoncus. Maecenas sed quam
+            dui. Maecenas laoreet erat orci, malesuada egestas purus hendrerit ut. <br> <br>Nulla iaculis ullamcorper
+            euismod. Etiam efficitur fringilla diam, ac placerat sapien tempus porttitor. Nulla scelerisque leo quis leo
+            pulvinar, et fermentum lacus ornare. In pulvinar pharetra magna.
+          </div>
+        </div>
+
+        <div class="ddiv">
+          <hr>
+
+          <div class="text" id="domino">
+            <b>🁳</b>
+          </div>
+        </div>
+      </div>
+
+      <!---->
+      <div class="slice" id="projects">
+        <div class="tdiv">
+          <div class="text">
+            <span data-i18n="projectsTitle">Projects</span>
+          </div>
+          <hr>
+        </div>
+
+        <div class="cdiv">
+
+          <div class="text" data-i18n="projectsText">
+            Proin porttitor at ante sit amet feugiat. Ut nec nisi urna. Sed ultricies lacus lectus, quis euismod augue
+            condimentum vitae. Nunc efficitur neque eget turpis posuere, in fringilla odio rhoncus. Maecenas sed quam
+            dui. Maecenas laoreet erat orci, malesuada egestas purus hendrerit ut. <br> <br>Nulla iaculis ullamcorper
+            euismod. Etiam efficitur fringilla diam, ac placerat sapien tempus porttitor. Nulla scelerisque leo quis leo
+            pulvinar, et fermentum lacus ornare. In pulvinar pharetra magna.
+          </div>
+        </div>
+
+        <div class="ddiv">
+          <hr>
+
+          <div class="text" id="domino">
+            <b>🁻</b>
+          </div>
+        </div>
+      </div>
+
+      <!---->
+      <div class="slice" id="links">
+        <div class="tdiv">
+          <div class="text">
+            <span data-i18n="linksTitle">Links</span>
+          </div>
+          <hr>
+        </div>
+        
+        <div class="contact-stitle">
+          <div data-i18n="contactFirst">Get in touch via</div>
+          <div><i><b>cyntrist✦proton✧me</i></b></div>
+          <div data-i18n="contactLast">or fill this form:</div>
+        </div>
+        <div class="contact-div">
+          <form action="https://formsubmit.co/el/suvima" method="POST">
+            <div>
+              <label for="name" data-i18n="formName">Name:</label>
+              <input type="text" id="name" name="name" />
+            </div>
+
+            <div>
+              <label for="mail" data-i18n="formEmail">Email:</label>
+              <input type="email" id="mail" name="email" />
+            </div>
+
+            <div>
+              <label for="subject" data-i18n="formSubject">Subject:</label>
+              <input type="text" id="subject" name="subject">
+            </div>
+
+            <div>
+              <label for="msg" data-i18n="formMessage">Message:</label>
+              <textarea id="msg" name="message"></textarea>
+            </div>
+
+            <div class="send">
+              <button type="submit" data-i18n="formSend">Send</button>
+            </div>
+          </form>
+          <!-- <div class="text" data-i18n="linksText">
+            Proin porttitor at ante sit amet feugiat. Ut nec nisi urna. Sed ultricies lacus lectus, quis euismod augue
+            condimentum vitae. Nunc efficitur neque eget turpis posuere, in fringilla odio rhoncus. Maecenas sed quam
+            dui. Maecenas laoreet erat orci, malesuada egestas purus hendrerit ut. <br> <br>Nulla iaculis ullamcorper
+            euismod. Etiam efficitur fringilla diam, ac placerat sapien tempus porttitor. Nulla scelerisque leo quis leo
+            pulvinar, et fermentum lacus ornare. In pulvinar pharetra magna.
+          </div> -->
+        </div>
+
+        <div class="ddiv">
+          <hr>
+
+          <div class="text" id="domino">
+            <b>🁣</b>
           </div>
         </div>
       </div>
@@ -79,8 +219,13 @@
   <!-- footer -->
   <footer>
     <div class="footer-div">
-      <div class="footer-text">
-        Made with Figma in HTML, CSS and JavaScript — source code on <a href="https://github.com/cyntrist/cyntrist.github.io">Github</a>
+      <div class="footer-date" data-i18n="footerDate">
+        July 2026<br>Cynthia Tristán Álvarez
+      </div>
+      <!-- —  -->
+      <div class="footer-text" data-i18n="footerText">
+        Made with Figma in HTML, CSS and JS<br>source code on <a
+          href="https://github.com/cyntrist/cyntrist.github.io">Github</a>
       </div>
     </div>
   </footer>
