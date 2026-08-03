@@ -49,7 +49,7 @@ body::after {
     pointer-events: none;
 }
 
-body::before {
+/* body::before {
     z-index: -2;
     background-image: url("../../assets/img/bg0.svg");
     background-position: var(--bg0-x, 0px) var(--bg0-y, 0px);
@@ -59,7 +59,7 @@ body::after {
     z-index: -1;
     background-image: url("../../assets/img/bg1.svg");
     background-position: var(--bg1-x, 0px) var(--bg1-y, 0px);
-}
+} */
 
 .slice {
     --slice-top: 62px;
