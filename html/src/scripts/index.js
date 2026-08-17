@@ -158,13 +158,15 @@ function initializePageBackground() {
   if (!ctx) return;
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const gap = 48;
+  const gap = 42;
   const size_factor = 0.2;
-  const radiusVmin = 30;
+  const in_radio_min = 0.2;
+  const in_radio_max = 0.5;
+  const radiusVmin = 15;
   const speedIn = 0.5;
   const speedOut = 0.6;
   const restScale = 0.09;
-  const minHoverScale = 1;
+  const minHoverScale = 3;
   const maxHoverScale = 3;
   const waveSpeed = 1200;
   const waveWidth = 180;
@@ -217,31 +219,6 @@ function initializePageBackground() {
     return 1 - Math.pow(0.05, 1 / (60 * seconds));
   };
 
-  const drawCircle = (size) => {
-    ctx.beginPath();
-    ctx.arc(0, 0, size, 0, Math.PI * 2);
-    ctx.fill();
-  };
-
-  const drawPill = (size) => {
-    const width = size * 0.96;
-    const height = size * 2;
-    const radius = width / 2;
-    const x = -width / 2;
-    const y = -height / 2;
-    ctx.beginPath();
-    ctx.moveTo(x + radius, y);
-    ctx.lineTo(x + width - radius, y);
-    ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
-    ctx.lineTo(x + width, y + height - radius);
-    ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-    ctx.lineTo(x + radius, y + height);
-    ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
-    ctx.lineTo(x, y + radius);
-    ctx.quadraticCurveTo(x, y, x + radius, y);
-    ctx.fill();
-  };
-
   const drawStar = (size, points, innerRatio) => {
     ctx.beginPath();
     for (let i = 0; i < points * 2; i++) {
@@ -257,9 +234,7 @@ function initializePageBackground() {
   };
 
   const drawShape = (shape) => {
-    if (shape.type === "circle") drawCircle(shape.size / 1.5);
-    if (shape.type === "pill") drawPill(shape.size / 1.4);
-    if (shape.type === "star") drawStar(shape.size, shape.points, shape.innerRatio);
+    drawStar(shape.size, shape.points, shape.innerRatio);
   };
 
   const resolveFill = (colorDef, size) => {
@@ -272,7 +247,7 @@ function initializePageBackground() {
 
   const randomStarProps = () => ({
     points: rndInt(3, 10),
-    innerRatio: rnd(0.1, 0.5)
+    innerRatio: rnd(in_radio_min, in_radio_max)
   });
 
   const getDocumentHeight = () => Math.max(

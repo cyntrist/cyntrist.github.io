@@ -181,11 +181,17 @@ body::after {
     transition-duration: 0.4s;
     cursor: pointer;
     border: 2px solid var(--negro-cynthia);
-    background-color: var(--blanco-cynthia);
+    background-color: var(--ambar-cynthia);
     color: var(--negro-cynthia);
 }
 
-.button:hover,
+.button:hover {
+    border: 2px solid var(--ambar-cynthia);
+    background-color: var(--negro-cynthia);
+    color: var(--ambar-cynthia);
+}
+
+
 input,
 textarea {
     border: 2px solid var(--blanco-cynthia);
@@ -384,13 +390,14 @@ hr {
     .cdiv {
         flex-direction: row;
     }
+    }
     .mug {
         width: 33%;
     }
 } */
 
 #domino {
-    color: var(--verde-nieves)
+    color: var(--lila-cynthia)
 }
 
 .contact-div {
@@ -424,6 +431,7 @@ label {
     width: auto;
     justify-self: end;
     text-align: right;
+    color: var(--azul-cynthia)
 }
 
 input,
@@ -433,6 +441,7 @@ textarea {
     font-size: 100%;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    color: var(--verde-nieves)
 }
 
 input {
@@ -472,16 +481,17 @@ form > .send > button {
     font-size: 100%;
     transition-duration: 0.4s;
     cursor: pointer;
-    border: 2px solid var(--negro-cynthia);
-    background-color: var(--blanco-cynthia);
+    /* border: 2px solid var(--negro-cynthia); */
+    border: 2px solid var(--ambar-cynthia);
+    background-color: var(--ambar-cynthia);
     color: var(--negro-cynthia);
 }
 
 
 form > .send > button:hover {
-    border: 2px solid var(--blanco-cynthia);
+    border: 2px solid var(--ambar-cynthia);
     background-color: var(--negro-cynthia);
-    color: var(--blanco-cynthia);
+    color: var(--ambar-cynthia);
 }
 
 .contact-stitle {
