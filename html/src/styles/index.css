@@ -142,6 +142,7 @@ body::after {
     flex: 1 1 0;
     flex-direction: column;
     min-width: 0;
+    gap: 12px;
 }
 
 .cdiv .text {
@@ -154,14 +155,16 @@ body::after {
 
 .mug {
     width: 100%;
-    height: min-content;
+    max-height: 256px;
+    object-fit: scale-down;
+    /* height: min-content; */
     align-self: center;
 }
 
 .buttons {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: 1;
     margin-top: auto;
     align-self: center;
     gap: 12px;
@@ -170,7 +173,8 @@ body::after {
 .button {
     border: none;
     padding: 8px;
-    font-size: min(2vmin, 18px);
+    font-size: 1rem;
+    /* font-size: min(2vmin, 18px); */
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -368,7 +372,11 @@ hr {
     }
 
     .mug {
-        width: 33%;
+        width: 25%;
+    }
+
+    .buttons {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
 

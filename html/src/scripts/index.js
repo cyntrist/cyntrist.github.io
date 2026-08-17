@@ -168,23 +168,29 @@ function initializePageBackground() {
   const waveSpeed = 1200;
   const waveWidth = 180;
   const palette = [
-    { type: "solid", value: "#22c55e" },
-    { type: "solid", value: "#06b6d4" },
-    { type: "solid", value: "#f97316" },
-    { type: "solid", value: "#ef4444" },
-    { type: "solid", value: "#facc15" },
-    { type: "solid", value: "#ec4899" },
-    { type: "solid", value: "#9ca3af" },
-    { type: "solid", value: "#a78bfa" },
-    { type: "solid", value: "#60a5fa" },
-    { type: "solid", value: "#34d399" },
-    { type: "gradient", stops: ["#6366f1", "#3b82f6"] },
-    { type: "gradient", stops: ["#06b6d4", "#6366f1"] },
-    { type: "gradient", stops: ["#22c55e", "#06b6d4"] },
-    { type: "gradient", stops: ["#f97316", "#ef4444"] },
-    { type: "gradient", stops: ["#8b5cf6", "#06b6d4"] },
-    { type: "gradient", stops: ["#3b82f6", "#8b5cf6"] },
-    { type: "gradient", stops: ["#34d399", "#3b82f6"] }
+    { type: "solid", value: "#ffa600" },
+    { type: "solid", value: "#DE5A5A" },
+    { type: "solid", value: "#E4DDCD" },
+    { type: "solid", value: "#275ED6" },
+    { type: "solid", value: "#DFB1F1" },
+    { type: "solid", value: "#71BC20" },
+    // { type: "solid", value: "#22c55e" },
+    // { type: "solid", value: "#06b6d4" },
+    // { type: "solid", value: "#f97316" },
+    // { type: "solid", value: "#ef4444" },
+    // { type: "solid", value: "#facc15" },
+    // { type: "solid", value: "#ec4899" },
+    // { type: "solid", value: "#9ca3af" },
+    // { type: "solid", value: "#a78bfa" },
+    // { type: "solid", value: "#60a5fa" },
+    // { type: "solid", value: "#34d399" },
+    // { type: "gradient", stops: ["#6366f1", "#3b82f6"] },
+    // { type: "gradient", stops: ["#06b6d4", "#6366f1"] },
+    // { type: "gradient", stops: ["#22c55e", "#06b6d4"] },
+    // { type: "gradient", stops: ["#f97316", "#ef4444"] },
+    // { type: "gradient", stops: ["#8b5cf6", "#06b6d4"] },
+    // { type: "gradient", stops: ["#3b82f6", "#8b5cf6"] },
+    // { type: "gradient", stops: ["#34d399", "#3b82f6"] }
   ];
   const shapeTypes = ["circle", "pill", "star", "star"];
 
@@ -265,7 +271,7 @@ function initializePageBackground() {
   };
 
   const randomStarProps = () => ({
-    points: rndInt(4, 10),
+    points: rndInt(3, 10),
     innerRatio: rnd(0.1, 0.5)
   });
 
@@ -443,7 +449,7 @@ function initializePageBackground() {
   };
 
   const onClick = (event) => {
-    triggerWave(event.clientX, event.clientY + window.scrollY);
+    //triggerWave(event.clientX, event.clientY + window.scrollY);
   };
 
   resizeCanvas();
@@ -455,7 +461,7 @@ function initializePageBackground() {
     rafId = window.requestAnimationFrame(tick);
     window.addEventListener("pointermove", onMove);
     window.addEventListener("click", onClick);
-    triggerWave();
+    // triggerWave();
   }
 
   window.addEventListener("resize", () => {
