@@ -499,8 +499,11 @@ Vue.component('card', {
       </div>
     </div>`,
   mounted() {
-    this.width = this.$refs.card.offsetWidth;
-    this.height = this.$refs.card.offsetHeight;
+    this.updateCardBounds();
+    window.addEventListener("resize", this.updateCardBounds);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.updateCardBounds);
   },
   props: ['dataImage'],
   data: () => ({
@@ -512,14 +515,14 @@ Vue.component('card', {
   }),
   computed: {
     mousePX() {
-      return this.mouseX / this.width;
+      return this.width ? this.mouseX / this.width : 0;
     },
     mousePY() {
-      return this.mouseY / this.height;
+      return this.height ? this.mouseY / this.height : 0;
     },
     cardStyle() {
-      const rX = this.mousePX * 30;
-      const rY = this.mousePY * -30;
+      const rX = this.mousePX * 9;
+      const rY = this.mousePY * -18;
       return {
         transform: `rotateY(${rX}deg) rotateX(${rY}deg)`
       };
@@ -538,9 +541,17 @@ Vue.component('card', {
     }
   },
   methods: {
+    updateCardBounds() {
+      const rect = this.$refs.card.getBoundingClientRect();
+      this.width = rect.width;
+      this.height = rect.height;
+    },
     handleMouseMove(e) {
-      this.mouseX = e.pageX - this.$refs.card.offsetLeft - this.width/2;
-      this.mouseY = e.pageY - this.$refs.card.offsetTop - this.height/2;
+      const rect = this.$refs.card.getBoundingClientRect();
+      this.width = rect.width;
+      this.height = rect.height;
+      this.mouseX = e.clientX - rect.left - this.width / 2;
+      this.mouseY = e.clientY - rect.top - this.height / 2;
     },
     handleMouseEnter() {
       clearTimeout(this.mouseLeaveDelay);
