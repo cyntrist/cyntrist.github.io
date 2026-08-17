@@ -158,7 +158,7 @@ function initializePageBackground() {
   if (!ctx) return;
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const gap = 64;
+  const gap = 48;
   const size_factor = 0.2;
   const radiusVmin = 30;
   const speedIn = 0.5;
@@ -286,19 +286,21 @@ function initializePageBackground() {
   const buildGrid = () => {
     const width = window.innerWidth;
     const height = getDocumentHeight();
-    const cols = Math.max(1, Math.floor(width / gap));
-    const rows = Math.max(1, Math.floor(height / gap));
-    const offsetX = (width - (cols - 1) * gap) / 2;
-    const offsetY = (height - (rows - 1) * gap) / 2;
+    const diagonalStep = gap / Math.SQRT2;
+    const horizontalStep = gap * Math.SQRT2;
+    const rows = Math.max(1, Math.ceil(height / diagonalStep) + 2);
+    const cols = Math.max(1, Math.ceil(width / horizontalStep) + 3);
+    const offsetY = -diagonalStep;
     const shapes = [];
 
     for (let row = 0; row < rows; row++) {
+      const rowOffsetX = row % 2 === 0 ? 0 : diagonalStep;
       for (let col = 0; col < cols; col++) {
         // const type = pick(shapeTypes);
         const type = "star";
         const shape = {
-          x: offsetX + col * gap,
-          y: offsetY + row * gap,
+          x: -horizontalStep + rowOffsetX + col * horizontalStep,
+          y: offsetY + row * diagonalStep,
           type,
           color: pick(palette),
           angle: rnd(0, Math.PI * 2),
