@@ -170,10 +170,10 @@ body::after {
 .button {
     border: none;
     padding: 8px;
+    font-size: min(2vmin, 16px);
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
     transition-duration: 0.4s;
     cursor: pointer;
     border: 2px solid var(--negro-cynthia);
@@ -484,17 +484,18 @@ form > .send > button:hover {
 
 
 
-
+/* CARDS */
 
 .container {
   padding: 40px 80px;
+  gap: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .card-wrap {
-  margin: 10px;
+  /* margin: 10px; */
   transform: perspective(800px);
   transform-style: preserve-3d;
   cursor: pointer;

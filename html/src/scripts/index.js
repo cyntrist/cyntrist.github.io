@@ -269,9 +269,17 @@ function initializePageBackground() {
     innerRatio: rnd(0.1, 0.5)
   });
 
+  const getDocumentHeight = () => Math.max(
+    document.body.scrollHeight,
+    document.documentElement.scrollHeight,
+    document.body.offsetHeight,
+    document.documentElement.offsetHeight,
+    window.innerHeight
+  );
+
   const buildGrid = () => {
     const width = window.innerWidth;
-    const height = window.innerHeight;
+    const height = getDocumentHeight();
     const cols = Math.max(1, Math.floor(width / gap));
     const rows = Math.max(1, Math.floor(height / gap));
     const offsetX = (width - (cols - 1) * gap) / 2;
@@ -313,16 +321,25 @@ function initializePageBackground() {
   };
 
   const updateMaskRects = () => {
+    const scrollY = window.scrollY;
     maskRects = Array.from(document.querySelectorAll("[data-shape-mask]"))
-      .map((element) => element.getBoundingClientRect());
+      .map((element) => {
+        const rect = element.getBoundingClientRect();
+        return {
+          left: rect.left,
+          right: rect.right,
+          top: rect.top + scrollY,
+          bottom: rect.bottom + scrollY
+        };
+      });
   };
 
-  const triggerWave = (x = window.innerWidth / 2, y = window.innerHeight / 2) => {
+  const triggerWave = (x = window.innerWidth / 2, y = window.scrollY + window.innerHeight / 2) => {
     waves.push({ x, y, startTime: performance.now() });
     maskOverride = true;
 
     const width = window.innerWidth;
-    const height = window.innerHeight;
+    const height = getDocumentHeight();
     const delay = Math.sqrt(width * width + height * height) / waveSpeed;
     window.setTimeout(() => {
       maskOverride = false;
@@ -333,12 +350,16 @@ function initializePageBackground() {
     if (!grid) return;
 
     const { shapes, width, height } = grid;
-    const radius = Math.min(width, height) * (radiusVmin / 100);
+    const viewportHeight = window.innerHeight;
+    const scrollY = window.scrollY;
+    const visibleTop = scrollY - gap * maxHoverScale;
+    const visibleBottom = scrollY + viewportHeight + gap * maxHoverScale;
+    const radius = Math.min(width, viewportHeight) * (radiusVmin / 100);
     const now = performance.now();
 
-    ctx.clearRect(0, 0, width, height);
+    ctx.clearRect(0, 0, width, viewportHeight);
     ctx.fillStyle = "#080808";
-    ctx.fillRect(0, 0, width, height);
+    ctx.fillRect(0, 0, width, viewportHeight);
 
     activity *= 0.93;
     frameCount++;
@@ -348,6 +369,8 @@ function initializePageBackground() {
     waves = waves.filter((wave) => ((now - wave.startTime) / 1000) * waveSpeed < maxDist + waveWidth);
 
     shapes.forEach((shape) => {
+      if (shape.y < visibleTop || shape.y > visibleBottom) return;
+
       const pad = gap / 2;
       const masked = !maskOverride && maskRects.some((rect) => (
         shape.x >= rect.left - pad &&
@@ -365,7 +388,7 @@ function initializePageBackground() {
       let pointerInfluence = 0;
       if (pointer && activity > 0.001) {
         const dx = shape.x - pointer.x;
-        const dy = shape.y - pointer.y;
+        const dy = shape.y - (pointer.y + scrollY);
         const dist = Math.sqrt(dx * dx + dy * dy);
         pointerInfluence = smoothstep(1 - dist / radius) * activity;
 
@@ -400,7 +423,7 @@ function initializePageBackground() {
       if (shape.scale < restScale * 0.15) return;
 
       ctx.save();
-      ctx.translate(shape.x, shape.y);
+      ctx.translate(shape.x, shape.y - scrollY);
       ctx.rotate(shape.angle);
       ctx.scale(shape.scale, shape.scale);
       ctx.fillStyle = resolveFill(shape.color, shape.size);
@@ -420,7 +443,7 @@ function initializePageBackground() {
   };
 
   const onClick = (event) => {
-    triggerWave(event.clientX, event.clientY);
+    triggerWave(event.clientX, event.clientY + window.scrollY);
   };
 
   resizeCanvas();
@@ -442,6 +465,22 @@ function initializePageBackground() {
     if (prefersReducedMotion) drawFrame();
     else rafId = window.requestAnimationFrame(tick);
   });
+
+  window.addEventListener("scroll", () => {
+    if (prefersReducedMotion) {
+      updateMaskRects();
+      drawFrame();
+    }
+  }, { passive: true });
+
+  if ("ResizeObserver" in window) {
+    const observer = new ResizeObserver(() => {
+      resizeCanvas();
+      updateMaskRects();
+      if (prefersReducedMotion) drawFrame();
+    });
+    observer.observe(document.body);
+  }
 }
 
 // Shape Wave
