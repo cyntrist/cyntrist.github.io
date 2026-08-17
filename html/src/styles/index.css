@@ -495,7 +495,8 @@ form > .send > button:hover {
 /* CARDS */
 
 .container {
-  padding: 40px 80px;
+  /* padding: 40px 80px; */
+  width: 100%;
   gap: 10px;
   display: flex;
   flex-wrap: wrap;

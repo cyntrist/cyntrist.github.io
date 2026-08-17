@@ -158,7 +158,8 @@ function initializePageBackground() {
   if (!ctx) return;
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const gap = 40;
+  const gap = 64;
+  const size_factor = 0.2;
   const radiusVmin = 30;
   const speedIn = 0.5;
   const speedOut = 0.6;
@@ -197,7 +198,6 @@ function initializePageBackground() {
   let grid = null;
   let rafId = null;
   let pointer = null;
-  let activity = 0;
   let waves = [];
   let maskRects = [];
   let frameCount = 0;
@@ -294,19 +294,21 @@ function initializePageBackground() {
 
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
-        const type = pick(shapeTypes);
+        // const type = pick(shapeTypes);
+        const type = "star";
         const shape = {
           x: offsetX + col * gap,
           y: offsetY + row * gap,
           type,
           color: pick(palette),
           angle: rnd(0, Math.PI * 2),
-          size: gap * 0.38,
+          size: gap * size_factor,
           scale: restScale,
           maxScale: rnd(minHoverScale, maxHoverScale),
           hovered: false
         };
-        if (type === "star") Object.assign(shape, randomStarProps());
+        // if (type === "star") Object.assign(shape, randomStarProps());
+        Object.assign(shape, randomStarProps());
         shapes.push(shape);
       }
     }
@@ -367,7 +369,6 @@ function initializePageBackground() {
     ctx.fillStyle = "#080808";
     ctx.fillRect(0, 0, width, viewportHeight);
 
-    activity *= 0.93;
     frameCount++;
     if (frameCount % 10 === 0) updateMaskRects();
 
@@ -392,11 +393,11 @@ function initializePageBackground() {
       }
 
       let pointerInfluence = 0;
-      if (pointer && activity > 0.001) {
+      if (pointer) {
         const dx = shape.x - pointer.x;
         const dy = shape.y - (pointer.y + scrollY);
         const dist = Math.sqrt(dx * dx + dy * dy);
-        pointerInfluence = smoothstep(1 - dist / radius) * activity;
+        pointerInfluence = smoothstep(1 - dist / radius);
 
         if (pointerInfluence > 0.05 && !shape.hovered) {
           shape.hovered = true;
@@ -445,7 +446,10 @@ function initializePageBackground() {
 
   const onMove = (event) => {
     pointer = { x: event.clientX, y: event.clientY };
-    activity = 1;
+  };
+
+  const onPointerLeave = () => {
+    pointer = null;
   };
 
   const onClick = (event) => {
@@ -460,6 +464,7 @@ function initializePageBackground() {
   } else {
     rafId = window.requestAnimationFrame(tick);
     window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerleave", onPointerLeave);
     window.addEventListener("click", onClick);
     // triggerWave();
   }
