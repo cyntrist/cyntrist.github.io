@@ -170,7 +170,7 @@ body::after {
 .button {
     border: none;
     padding: 8px;
-    font-size: min(2vmin, 16px);
+    font-size: min(2vmin, 18px);
     text-align: center;
     text-decoration: none;
     display: inline-block;
