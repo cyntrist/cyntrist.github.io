@@ -53,7 +53,7 @@ const translations = {
     profileText: "¡Hola! Soy Cynthia Tristán, entusiasta jugadora y creadora actualmente viviendo en España.\n\nGracias por visitar mi portafolio, espero que te lo pases bien echando un vistazo.\n\n¡Más experiencias chulas siempre en camino!",
     skillsText: "Texto en en español.\n\nSalto de línea.",
     projectsText: "Texto en en español.\n\nSalto de línea.",
-    resume:"Currículum",
+    resume:"CV",
     mail:"Correo",
 
     d1: "Videojuego de ritmo en Godot compatible con controlador de guitarra y niveles dirigidos por datos realizado en equipo de 4 personas.",
