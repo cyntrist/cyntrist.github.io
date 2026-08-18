@@ -532,6 +532,7 @@ Vue.component('card', {
           :style="cardBgTransform"
           :src="dataVideo"
           :poster="dataImage || null"
+          :autoplay="isMobileCard"
           muted
           loop
           playsinline
@@ -552,14 +553,29 @@ Vue.component('card', {
       </div>
     </component>`,
   mounted() {
+    this.mobileCardQuery = window.matchMedia("(max-width: 599px)");
+    this.isMobileCard = this.mobileCardQuery.matches;
     this.updateCardBounds();
     window.addEventListener("resize", this.updateCardBounds);
     window.addEventListener("cards-content-updated", this.updateCardBounds);
+    if (this.mobileCardQuery.addEventListener) {
+      this.mobileCardQuery.addEventListener("change", this.handleMobileCardChange);
+    } else {
+      this.mobileCardQuery.addListener(this.handleMobileCardChange);
+    }
     this.$nextTick(this.updateCardBounds);
+    this.$nextTick(this.syncMobileCardVideo);
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.updateCardBounds);
     window.removeEventListener("cards-content-updated", this.updateCardBounds);
+    if (this.mobileCardQuery) {
+      if (this.mobileCardQuery.removeEventListener) {
+        this.mobileCardQuery.removeEventListener("change", this.handleMobileCardChange);
+      } else {
+        this.mobileCardQuery.removeListener(this.handleMobileCardChange);
+      }
+    }
     this.pauseCardVideo();
   },
   props: {
@@ -577,7 +593,9 @@ Vue.component('card', {
     mouseX: 0,
     mouseY: 0,
     hiddenInfoOffset: 0,
-    mouseLeaveDelay: null
+    mouseLeaveDelay: null,
+    isMobileCard: false,
+    mobileCardQuery: null
   }),
   computed: {
     mousePX() {
@@ -649,11 +667,15 @@ Vue.component('card', {
       this.mouseY = e.clientY - rect.top - this.height / 2;
     },
     handleMouseEnter() {
+      if (this.isMobileCard) return;
+
       this.playCardVideo();
 
       clearTimeout(this.mouseLeaveDelay);
     },
     handleMouseLeave() {
+      if (this.isMobileCard) return;
+
       this.pauseCardVideo();
 
       if (enableCardMotion) {
@@ -661,6 +683,17 @@ Vue.component('card', {
           this.mouseX = 0;
           this.mouseY = 0;
         }, 1000);
+      }
+    },
+    handleMobileCardChange(e) {
+      this.isMobileCard = e.matches;
+      this.syncMobileCardVideo();
+    },
+    syncMobileCardVideo() {
+      if (this.isMobileCard) {
+        this.playCardVideo();
+      } else {
+        this.pauseCardVideo();
       }
     },
     playCardVideo() {
