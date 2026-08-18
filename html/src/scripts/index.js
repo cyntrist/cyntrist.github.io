@@ -23,7 +23,7 @@ const translations = {
     mail:"Mail",
 
     d1: "Rhythm videogame in Godot compatible with guitar controller and data-driven levels by a team of 4 people.",
-    d2: "Data-driven Entity-Component game engine written in C++ for Windows by a team of 10 people.",
+    d2: "Data-driven Entity-Component game engine written in C++ with Lua and C++ hot-reloading for Windows by a team of 10 people.",
     d3: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
     d4: "Unity videogame and simulator of the physical model of the Chladni plates in 2D with FMOD by a team of 2 people.",
     d5: "Horror videogame in Godot for the 2024 SCREAM JAM, ranked #5 in narrative category.",
@@ -50,14 +50,14 @@ const translations = {
     projectsTitle: "Proyectos", 
     linksTitle: "Contacto",
 
-    profileText: "¡Hola! Soy Cynthia Tristán, entusiasta de jugar y crear actualmente viviendo en España.\n\nGracias por visitar mi portafolio, espero que te lo pases bien echando un vistazo.\n\n¡Más experiencias chulas siempre en camino!",
+    profileText: "¡Hola! Soy Cynthia Tristán, entusiasta jugadora y creadora actualmente viviendo en España.\n\nGracias por visitar mi portafolio, espero que te lo pases bien echando un vistazo.\n\n¡Más experiencias chulas siempre en camino!",
     skillsText: "Texto en en español.\n\nSalto de línea.",
     projectsText: "Texto en en español.\n\nSalto de línea.",
     resume:"Currículum",
     mail:"Correo",
 
     d1: "Videojuego de ritmo en Godot compatible con controlador de guitarra y niveles dirigidos por datos realizado en equipo de 4 personas.",
-    d2: "Motor Entity-Component escrito en C++ y dirigido por datos para Windows hecho por un equipo de 10 personas.",
+    d2: "Motor Entity-Component escrito en C++ y dirigido por datos con carga en caliente para Windows hecho por un equipo de 10 personas.",
     d3: "Lorem ipsum pero es en español.",
     d4: "Videojuego en Unity con FMOD y simulador del modelo físico de las placas de Chladni en 2D por un equipo de 2 personas.",
     d5: "Videojuego de horror en Godot para la SCREAM JAM 2024, 5º puesto en categoría narrativa.",
@@ -178,8 +178,8 @@ function initializePageBackground() {
   if (!ctx) return;
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const gap = 42;
-  const size_factor = 0.2;
+  const gap = 64;
+  const size_factor = 0.15;
   const in_radio_min = 0.2;
   const in_radio_max = 0.5;
   const radiusVmin = 15;
@@ -192,10 +192,16 @@ function initializePageBackground() {
   const waveWidth = 180;
   const palette = [
     { type: "solid", value: "#ffa600" },
+    { type: "solid", value: "#ffa600" },
+    { type: "solid", value: "#DE5A5A" },
     { type: "solid", value: "#DE5A5A" },
     { type: "solid", value: "#E4DDCD" },
+    { type: "solid", value: "#E4DDCD" },
+    { type: "solid", value: "#E4DDCD" },
+    { type: "solid", value: "#275ED6" },
     { type: "solid", value: "#275ED6" },
     { type: "solid", value: "#DFB1F1" },
+    { type: "solid", value: "#71BC20" },
     { type: "solid", value: "#71BC20" },
     // { type: "solid", value: "#22c55e" },
     // { type: "solid", value: "#06b6d4" },
