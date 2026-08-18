@@ -480,6 +480,8 @@ function initializePageBackground() {
 // Thanks to Andy Merskin:
 // https://codepen.io/andymerskin/pen/XNMWvQ
 
+const enableCardMotion = false;
+
 Vue.config.devtools = true;
 
 Vue.component('card', {
@@ -521,6 +523,12 @@ Vue.component('card', {
       return this.height ? this.mouseY / this.height : 0;
     },
     cardStyle() {
+      if (!enableCardMotion) {
+        return {
+          transform: "rotateY(0deg) rotateX(0deg)"
+        };
+      }
+
       const rX = this.mousePX * 9;
       const rY = this.mousePY * -18;
       return {
@@ -528,6 +536,12 @@ Vue.component('card', {
       };
     },
     cardBgTransform() {
+      if (!enableCardMotion) {
+        return {
+          transform: "translateX(0px) translateY(0px)"
+        };
+      }
+
       const tX = this.mousePX * -40;
       const tY = this.mousePY * -40;
       return {
@@ -547,6 +561,8 @@ Vue.component('card', {
       this.height = rect.height;
     },
     handleMouseMove(e) {
+      if (!enableCardMotion) return;
+
       const rect = this.$refs.card.getBoundingClientRect();
       this.width = rect.width;
       this.height = rect.height;
@@ -554,9 +570,13 @@ Vue.component('card', {
       this.mouseY = e.clientY - rect.top - this.height / 2;
     },
     handleMouseEnter() {
+      if (!enableCardMotion) return;
+
       clearTimeout(this.mouseLeaveDelay);
     },
     handleMouseLeave() {
+      if (!enableCardMotion) return;
+
       this.mouseLeaveDelay = setTimeout(()=>{
         this.mouseX = 0;
         this.mouseY = 0;
