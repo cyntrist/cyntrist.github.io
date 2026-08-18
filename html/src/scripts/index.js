@@ -494,15 +494,20 @@ Vue.component('card', {
       <div class="card"
         :style="cardStyle">
         <div class="card-bg" :style="[cardBgTransform, cardBgImage]"></div>
-        <div class="card-info">
-          <slot name="header"></slot>
-          <slot name="content"></slot>
+        <div class="card-info" :style="cardInfoStyle" ref="cardInfo">
+          <div class="card-info-title" ref="cardTitle">
+            <slot name="header"></slot>
+          </div>
+          <div class="card-info-content">
+            <slot name="content"></slot>
+          </div>
         </div>
       </div>
     </div>`,
   mounted() {
     this.updateCardBounds();
     window.addEventListener("resize", this.updateCardBounds);
+    this.$nextTick(this.updateCardBounds);
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.updateCardBounds);
@@ -513,6 +518,7 @@ Vue.component('card', {
     height: 0,
     mouseX: 0,
     mouseY: 0,
+    hiddenInfoOffset: 0,
     mouseLeaveDelay: null
   }),
   computed: {
@@ -552,6 +558,11 @@ Vue.component('card', {
       return {
         backgroundImage: `url(${this.dataImage})`
       }
+    },
+    cardInfoStyle() {
+      return {
+        "--card-info-hidden": `${this.hiddenInfoOffset}px`
+      };
     }
   },
   methods: {
@@ -559,6 +570,16 @@ Vue.component('card', {
       const rect = this.$refs.card.getBoundingClientRect();
       this.width = rect.width;
       this.height = rect.height;
+
+      const cardInfo = this.$refs.cardInfo;
+      const title = this.$refs.cardTitle;
+      if (!cardInfo || !title) return;
+
+      const styles = window.getComputedStyle(cardInfo);
+      const paddingBottom = parseFloat(styles.paddingBottom) || 0;
+      const infoRect = cardInfo.getBoundingClientRect();
+      const titleRect = title.getBoundingClientRect();
+      this.hiddenInfoOffset = Math.max(0, Math.ceil(infoRect.bottom - titleRect.bottom - paddingBottom));
     },
     handleMouseMove(e) {
       if (!enableCardMotion) return;

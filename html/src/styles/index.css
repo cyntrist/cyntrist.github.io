@@ -583,6 +583,7 @@ form > .send > button:hover {
 }
 
 .card-info {
+  --card-info-hidden: 0px;
   width: 100%;
   padding: clamp(16px, 4vw, 28px);
   position: absolute;
@@ -590,10 +591,23 @@ form > .send > button:hover {
   right: 0;
   bottom: 0;
   color: var(--blanco-cynthia);
-  transform: translateY(calc(100% - clamp(64px, 9vw, 92px)));
+  transform: translateY(var(--card-info-hidden));
   transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
+
+.card-info-title {
+  position: relative;
+  z-index: 1;
+}
+
+.card-info-content {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.75em;
+}
+
 .card-info p {
+  margin-top: 0;
   margin-bottom: 0;
   opacity: 0;
   text-shadow: black 0 2px 3px;
@@ -623,7 +637,9 @@ form > .send > button:hover {
   font-style: italic;
   margin: 0;
   font-size: clamp(24px, 5vw, 42px);
+  line-height: 1.12;
   font-weight: 700;
+  overflow-wrap: anywhere;
   text-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px;
 }
 
