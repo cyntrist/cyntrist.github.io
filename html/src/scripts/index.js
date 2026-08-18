@@ -16,11 +16,18 @@ const translations = {
     projectsTitle: "Projects", 
     linksTitle: "Contact",
 
-    profileText: "Hi! I'm Cynthia Tristán, avid gamer and maker based in Spain.\n\nThank you for visting my page, hope you have fun looking around.\n\nMore cool stuff is always on the way!",
+    profileText: "Hi! I'm Cynthia Tristán, avid gamer and maker currently based in Spain.\n\nThank you for visting my portfolio, hope you have fun looking around.\n\nMore cool stuff is always on the way!",
     skillsText: "",
     projectsText: "",
     resume: "Resume",
     mail:"Mail",
+
+    d1: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    d2: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    d3: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    d4: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    d5: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    d6: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
 
     contactFirst: "Get in touch via",
     contactLast:"or fill this form:",
@@ -41,11 +48,19 @@ const translations = {
     skillsTitle: "Experiencia",
     projectsTitle: "Proyectos", 
     linksTitle: "Contacto",
-    profileText: "¡Hola! Soy Cynthia Tristán, apasionada jugadora y creadora viviendo en España.\n\nGracias por visitar mi página, espero que te lo pases bien echando un vistazo.\n\n¡Más cosas chulas siempre en camino!",
+
+    profileText: "¡Hola! Soy Cynthia Tristán, entusiasta de jugar y crear actualmente viviendo en España.\n\nGracias por visitar mi portafolio, espero que te lo pases bien echando un vistazo.\n\n¡Más experiencias chulas siempre en camino!",
     skillsText: "Texto en en español.\n\nSalto de línea.",
     projectsText: "Texto en en español.\n\nSalto de línea.",
     resume:"Currículum",
     mail:"Correo",
+
+    d1: "Lorem ipsum pero es en español.",
+    d2: "Lorem ipsum pero es en español.",
+    d3: "Lorem ipsum pero es en español.",
+    d4: "Lorem ipsum pero es en español.",
+    d5: "Lorem ipsum pero es en español.",
+    d6: "Lorem ipsum pero es en español.",
 
     contactFirst: "Envía un correo a",
     contactLast:"o rellena este formulario:",
@@ -84,6 +99,9 @@ function setLanguage(language) {
   }
 
   localStorage.setItem("preferred-language", selectedLanguage);
+  window.requestAnimationFrame(() => {
+    window.dispatchEvent(new Event("cards-content-updated"));
+  });
 }
 
 function initializeMailtoLinks() {
@@ -486,7 +504,12 @@ Vue.config.devtools = true;
 
 Vue.component('card', {
   template: `
-    <div class="card-wrap"
+    <component
+      :is="href ? 'a' : 'div'"
+      class="card-wrap"
+      :href="href || null"
+      :target="href ? target : null"
+      :rel="href && target === '_blank' ? 'noopener noreferrer' : null"
       @mousemove="handleMouseMove"
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
@@ -503,16 +526,25 @@ Vue.component('card', {
           </div>
         </div>
       </div>
-    </div>`,
+    </component>`,
   mounted() {
     this.updateCardBounds();
     window.addEventListener("resize", this.updateCardBounds);
+    window.addEventListener("cards-content-updated", this.updateCardBounds);
     this.$nextTick(this.updateCardBounds);
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.updateCardBounds);
+    window.removeEventListener("cards-content-updated", this.updateCardBounds);
   },
-  props: ['dataImage'],
+  props: {
+    dataImage: String,
+    href: String,
+    target: {
+      type: String,
+      default: "_blank"
+    }
+  },
   data: () => ({
     width: 0,
     height: 0,

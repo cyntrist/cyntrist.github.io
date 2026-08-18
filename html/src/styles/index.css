@@ -534,6 +534,14 @@ form > .send > button:hover {
   cursor: pointer;
   width: 100%;
   max-width: 100%;
+  color: inherit;
+  display: block;
+  text-decoration: none;
+}
+
+.card-wrap:focus-visible {
+  outline: 2px solid var(--ambar-cynthia);
+  outline-offset: 4px;
 }
 .card-wrap:hover .card-info {
   transform: translateY(0);
@@ -563,7 +571,7 @@ form > .send > button:hover {
   width: 100%;
   aspect-ratio: 16 / 7;
   min-height: 220px;
-  max-height: 360px;
+  max-height: 320px;
   /* background-color: #333; */
   overflow: hidden;
   /* border-radius: 8px; */
