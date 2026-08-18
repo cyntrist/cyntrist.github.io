@@ -16,17 +16,17 @@ const translations = {
     projectsTitle: "Projects", 
     linksTitle: "Contact",
 
-    profileText: "Hi! I'm Cynthia Tristán, avid gamer and maker currently based in Spain.\n\nThank you for visting my portfolio, hope you have fun looking around.\n\nMore cool stuff is always on the way!",
+    profileText: "Hi! I'm Cynthia Tristán, avid gamer and maker currently based in Spain.\n\nThank you for visting my portfolio, hope you have fun looking around.\n\nMore cool experiences are always on the way!",
     skillsText: "",
     projectsText: "",
     resume: "Resume",
     mail:"Mail",
 
-    d1: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    d2: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    d1: "Rhythm videogame in Godot compatible with guitar controller and data-driven levels by a team of 4 people.",
+    d2: "Data-driven Entity-Component game engine written in C++ for Windows by a team of 10 people.",
     d3: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    d4: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    d5: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    d4: "Unity videogame and simulator of the physical model of the Chladni plates in 2D with FMOD by a team of 2 people.",
+    d5: "Horror videogame in Godot for the 2024 SCREAM JAM, ranked #5 in narrative category.",
     d6: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
 
     contactFirst: "Get in touch via",
@@ -36,6 +36,7 @@ const translations = {
     formSubject: "Subject:",
     formMessage: "Message:",
     formSend: "Send",
+    more: "and more!",
 
     footerDate: "August 2026<br>Cynthia Tristán Álvarez",
     footerText: "Made with Figma in HTML, CSS and JS<br>source code on <a href=\"https://github.com/cyntrist/cyntrist.github.io\">Github</a>"
@@ -55,12 +56,13 @@ const translations = {
     resume:"Currículum",
     mail:"Correo",
 
-    d1: "Lorem ipsum pero es en español.",
-    d2: "Lorem ipsum pero es en español.",
+    d1: "Videojuego de ritmo en Godot compatible con controlador de guitarra y niveles dirigidos por datos realizado en equipo de 4 personas.",
+    d2: "Motor Entity-Component escrito en C++ y dirigido por datos para Windows hecho por un equipo de 10 personas.",
     d3: "Lorem ipsum pero es en español.",
-    d4: "Lorem ipsum pero es en español.",
-    d5: "Lorem ipsum pero es en español.",
+    d4: "Videojuego en Unity con FMOD y simulador del modelo físico de las placas de Chladni en 2D por un equipo de 2 personas.",
+    d5: "Videojuego de horror en Godot para la SCREAM JAM 2024, 5º puesto en categoría narrativa.",
     d6: "Lorem ipsum pero es en español.",
+    more: "¡y más!",
 
     contactFirst: "Envía un correo a",
     contactLast:"o rellena este formulario:",

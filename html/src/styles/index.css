@@ -414,6 +414,20 @@ hr {
     align-self: center;
 }
 
+.more {
+    display: grid;
+    align-self: center;
+    margin: 10px 0px;
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -559,11 +573,11 @@ form > .send > button:hover {
 }
 .card-wrap:hover .card-bg {
   /* transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 5s cubic-bezier(0.23, 1, 0.32, 1); */
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
 .card-wrap:hover .card {
   /* transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 2s cubic-bezier(0.23, 1, 0.32, 1); */
-  /* box-shadow: rgba(255, 255, 255, 0.2) 0 0 40px 5px, white 0 0 0 1px, rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset white 0 0 0 6px; */
+  box-shadow: rgba(255, 255, 255, 0.2) 0 0 40px 5px, white 0 0 0 1px, rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset white 0 0 0 6px;
 }
 
 .card {
@@ -618,7 +632,9 @@ form > .send > button:hover {
   margin-top: 0;
   margin-bottom: 0;
   opacity: 0;
-  text-shadow: black 0 2px 3px;
+  background-color: var(--negro-cynthia);
+  /* text-shadow: black 0 2px 3px; */
+  display: inline;
   transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .card-info * {
@@ -648,7 +664,10 @@ form > .send > button:hover {
   line-height: 1.12;
   font-weight: 700;
   overflow-wrap: anywhere;
-  text-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px;
+  background-color: var(--negro-cynthia);
+  color: var(--ambar-cynthia);
+  display: inline;
+  /* text-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px; */
 }
 
 @media (max-width: 599px) {
