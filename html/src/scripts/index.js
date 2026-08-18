@@ -57,7 +57,7 @@ const translations = {
     mail:"Correo",
 
     d1: "Videojuego de ritmo en Godot compatible con controlador de guitarra y niveles dirigidos por datos realizado en equipo de 4 personas.",
-    d2: "Motor Entity-Component escrito en C++ y dirigido por datos con carga en caliente para Windows hecho por un equipo de 10 personas.",
+    d2: "Motor Entidad-Componente escrito en C++ y dirigido por datos con carga en caliente para Windows hecho por un equipo de 10 personas.",
     d3: "Lorem ipsum pero es en español.",
     d4: "Videojuego en Unity con FMOD y simulador del modelo físico de las placas de Chladni en 2D por un equipo de 2 personas.",
     d5: "Videojuego de horror en Godot para la SCREAM JAM 2024, 5º puesto en categoría narrativa.",
