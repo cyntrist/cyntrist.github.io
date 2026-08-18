@@ -521,10 +521,26 @@ Vue.component('card', {
       @mousemove="handleMouseMove"
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
+      @focus="handleMouseEnter"
+      @blur="handleMouseLeave"
       ref="card">
       <div class="card"
         :style="cardStyle">
-        <div class="card-bg" :style="[cardBgTransform, cardBgImage]"></div>
+        <video
+          v-if="dataVideo"
+          class="card-bg card-bg-video"
+          :style="cardBgTransform"
+          :src="dataVideo"
+          :poster="dataImage || null"
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          ref="video"></video>
+        <div
+          v-else
+          class="card-bg card-bg-image"
+          :style="[cardBgTransform, cardBgImage]"></div>
         <div class="card-info" :style="cardInfoStyle" ref="cardInfo">
           <div class="card-info-title" ref="cardTitle">
             <slot name="header"></slot>
@@ -544,9 +560,11 @@ Vue.component('card', {
   beforeDestroy() {
     window.removeEventListener("resize", this.updateCardBounds);
     window.removeEventListener("cards-content-updated", this.updateCardBounds);
+    this.pauseCardVideo();
   },
   props: {
     dataImage: String,
+    dataVideo: String,
     href: String,
     target: {
       type: String,
@@ -631,17 +649,34 @@ Vue.component('card', {
       this.mouseY = e.clientY - rect.top - this.height / 2;
     },
     handleMouseEnter() {
-      if (!enableCardMotion) return;
+      this.playCardVideo();
 
       clearTimeout(this.mouseLeaveDelay);
     },
     handleMouseLeave() {
-      if (!enableCardMotion) return;
+      this.pauseCardVideo();
 
-      this.mouseLeaveDelay = setTimeout(()=>{
-        this.mouseX = 0;
-        this.mouseY = 0;
-      }, 1000);
+      if (enableCardMotion) {
+        this.mouseLeaveDelay = setTimeout(()=>{
+          this.mouseX = 0;
+          this.mouseY = 0;
+        }, 1000);
+      }
+    },
+    playCardVideo() {
+      const video = this.$refs.video;
+      if (!video) return;
+
+      const playRequest = video.play();
+      if (playRequest && typeof playRequest.catch === "function") {
+        playRequest.catch(() => {});
+      }
+    },
+    pauseCardVideo() {
+      const video = this.$refs.video;
+      if (!video) return;
+
+      video.pause();
     }
   }
 });

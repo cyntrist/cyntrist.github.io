@@ -597,11 +597,18 @@ form > .send > button:hover {
   opacity: 1.0;
   position: absolute;
   inset: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  display: block;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.card-bg-image {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   /* transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95); */
-  pointer-events: none;
 }
 
 .card-info {
