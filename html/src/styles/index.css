@@ -12,7 +12,7 @@
     --bg-size: 128px;
     --section-title-size: clamp(1.2rem, 4vw, 1.5rem);
     --body-text-size: clamp(1.1rem, 1vw, 1.5rem);
-    --card-title-size: clamp(1.5rem, 2.2vw + 0.9rem, 2rem);
+    --card-title-size: clamp(1.5rem, 2.2vw + 0.9rem, 2.5rem);
     /* --card-description-size: clamp(0.95rem, 0.55vw + 0.82rem, 1.1rem); */
     --card-description-size: clamp(1rem, 1vw, 1.5rem);
     --nav-text-size: clamp(1rem, 4vmin, 2rem);
@@ -272,6 +272,7 @@ textarea {
 }
 
 .bar-element {
+    align-self: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -387,7 +388,8 @@ hr {
 
 @media (min-width: 600px) {
     .slice {
-        width: 66vw;
+        /* width: 66vw; */
+        max-width: 50%;
     }
 
     .header img {
@@ -557,7 +559,7 @@ form>.send>button:hover {
 .container {
     /* padding: 40px 80px; */
     width: 100%;
-    gap: 16px;
+    gap: 14px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -613,8 +615,10 @@ form>.send>button:hover {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 7;
-    min-height: 220px;
-    max-height: 420px;
+    /* min-height: 220px;
+    max-height: 420px; */
+    min-height: 30vh;
+    max-height: 60vh;
     background-color: var(--negro-cynthia);
     overflow: hidden;
     /* border-radius: 8px; */
@@ -743,7 +747,9 @@ form>.send>button:hover {
         font-weight: 700;
     }
 
-
+    .card-wrap .card-bg {
+        opacity: 0.7;
+    }
 
 }
 
@@ -831,6 +837,6 @@ form>.send>button:hover {
     font-weight: bold;
     font-style: italic;
     color: var(--verde-nieves);
-    font-size: 1.15rem;
+    font-size: var(--section-title-size);
     line-height: 1.1;
 }
