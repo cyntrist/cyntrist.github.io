@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mlt LC_NUMERIC="en_US.UTF-8" producer="main_bin" root="C:/Users/Cynthia/Videos" version="7.40.0">
  <profile colorspace="709" description="HD 1080p 25 fps" display_aspect_den="9" display_aspect_num="16" frame_rate_den="1" frame_rate_num="25" height="1080" progressive="1" sample_aspect_den="1" sample_aspect_num="1" width="1920"/>
- <producer id="producer0" in="00:00:00.000" out="00:05:16.240">
+ <producer id="producer0" in="00:00:00.000" out="00:05:14.360">
   <property name="length">2147483647</property>
   <property name="eof">continue</property>
   <property name="resource">black</property>
@@ -49,6 +49,126 @@
    <property name="disable">1</property>
   </filter>
  </tractor>
+ <producer id="producer1" in="00:00:00.000" out="00:03:13.640">
+  <property name="length">4842</property>
+  <property name="eof">pause</property>
+  <property name="resource">1.25:Módulo_Espacial_Chladni_Proyecto_Final_Sonido_en_Videojuegos.mp4</property>
+  <property name="aspect_ratio">1</property>
+  <property name="meta.media.nb_streams">2</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">30</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">1</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.color_trc">1</property>
+  <property name="meta.media.0.codec.name">h264</property>
+  <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
+  <property name="meta.media.0.codec.bit_rate">411824</property>
+  <property name="meta.attr.0.stream.creation_time.markup">2025-12-02T21:57:09.000000Z</property>
+  <property name="meta.media.1.stream.type">audio</property>
+  <property name="meta.media.1.codec.sample_fmt">fltp</property>
+  <property name="meta.media.1.codec.sample_rate">44100</property>
+  <property name="meta.media.1.codec.channels">2</property>
+  <property name="meta.media.1.codec.layout">stereo</property>
+  <property name="meta.media.1.codec.name">aac</property>
+  <property name="meta.media.1.codec.long_name">AAC (Advanced Audio Coding)</property>
+  <property name="meta.media.1.codec.bit_rate">128005</property>
+  <property name="meta.attr.1.stream.creation_time.markup">2025-12-02T21:57:12.000000Z</property>
+  <property name="meta.attr.major_brand.markup">mp42</property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">mp41isomiso2</property>
+  <property name="meta.attr.creation_time.markup">2026-08-19T19:56:38.000000Z</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="audio_index">1</property>
+  <property name="video_index">0</property>
+  <property name="warp_speed">1.25</property>
+  <property name="warp_resource">Módulo_Espacial_Chladni_Proyecto_Final_Sonido_en_Videojuegos.mp4</property>
+  <property name="mlt_service">timewarp</property>
+  <property name="kdenlive:control_uuid">{e899eb3a-08ed-4a24-a2d8-0eec49b1d369}</property>
+  <property name="vstream">0</property>
+  <property name="astream">0</property>
+  <property name="set.test_audio">1</property>
+  <property name="set.test_image">0</property>
+  <property name="kdenlive:id">4</property>
+  <property name="warp_pitch">0</property>
+  <property name="meta.media.frame_rate_num">30</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">1</property>
+  <property name="meta.media.has_b_frames">1</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+ </producer>
+ <producer id="producer2" in="00:00:00.000" out="00:02:18.280">
+  <property name="length">3458</property>
+  <property name="eof">pause</property>
+  <property name="resource">1.75:Módulo_Espacial_Chladni_Proyecto_Final_Sonido_en_Videojuegos.mp4</property>
+  <property name="aspect_ratio">1</property>
+  <property name="meta.media.nb_streams">2</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">30</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">1</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.color_trc">1</property>
+  <property name="meta.media.0.codec.name">h264</property>
+  <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
+  <property name="meta.media.0.codec.bit_rate">411824</property>
+  <property name="meta.attr.0.stream.creation_time.markup">2025-12-02T21:57:09.000000Z</property>
+  <property name="meta.media.1.stream.type">audio</property>
+  <property name="meta.media.1.codec.sample_fmt">fltp</property>
+  <property name="meta.media.1.codec.sample_rate">44100</property>
+  <property name="meta.media.1.codec.channels">2</property>
+  <property name="meta.media.1.codec.layout">stereo</property>
+  <property name="meta.media.1.codec.name">aac</property>
+  <property name="meta.media.1.codec.long_name">AAC (Advanced Audio Coding)</property>
+  <property name="meta.media.1.codec.bit_rate">128005</property>
+  <property name="meta.attr.1.stream.creation_time.markup">2025-12-02T21:57:12.000000Z</property>
+  <property name="meta.attr.major_brand.markup">mp42</property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">mp41isomiso2</property>
+  <property name="meta.attr.creation_time.markup">2026-08-19T19:56:38.000000Z</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="audio_index">1</property>
+  <property name="video_index">0</property>
+  <property name="warp_speed">1.75</property>
+  <property name="warp_resource">Módulo_Espacial_Chladni_Proyecto_Final_Sonido_en_Videojuegos.mp4</property>
+  <property name="mlt_service">timewarp</property>
+  <property name="kdenlive:control_uuid">{e899eb3a-08ed-4a24-a2d8-0eec49b1d369}</property>
+  <property name="vstream">0</property>
+  <property name="astream">0</property>
+  <property name="set.test_audio">1</property>
+  <property name="set.test_image">0</property>
+  <property name="kdenlive:id">4</property>
+  <property name="warp_pitch">0</property>
+  <property name="meta.media.frame_rate_num">30</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">1</property>
+  <property name="meta.media.has_b_frames">1</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+ </producer>
  <chain id="chain0" out="00:04:02.040">
   <property name="length">6052</property>
   <property name="eof">pause</property>
@@ -112,71 +232,11 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <producer id="producer1" in="00:00:00.000" out="00:02:18.280">
-  <property name="length">3458</property>
-  <property name="eof">pause</property>
-  <property name="resource">1.75:Módulo_Espacial_Chladni_Proyecto_Final_Sonido_en_Videojuegos.mp4</property>
-  <property name="aspect_ratio">1</property>
-  <property name="meta.media.nb_streams">2</property>
-  <property name="meta.media.0.stream.type">video</property>
-  <property name="meta.media.0.stream.frame_rate">30</property>
-  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.width">1920</property>
-  <property name="meta.media.0.codec.height">1080</property>
-  <property name="meta.media.0.codec.rotate">0</property>
-  <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
-  <property name="meta.media.0.codec.sample_aspect_ratio">1</property>
-  <property name="meta.media.0.codec.colorspace">709</property>
-  <property name="meta.media.0.codec.color_trc">1</property>
-  <property name="meta.media.0.codec.name">h264</property>
-  <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">411824</property>
-  <property name="meta.attr.0.stream.creation_time.markup">2025-12-02T21:57:09.000000Z</property>
-  <property name="meta.media.1.stream.type">audio</property>
-  <property name="meta.media.1.codec.sample_fmt">fltp</property>
-  <property name="meta.media.1.codec.sample_rate">44100</property>
-  <property name="meta.media.1.codec.channels">2</property>
-  <property name="meta.media.1.codec.layout">stereo</property>
-  <property name="meta.media.1.codec.name">aac</property>
-  <property name="meta.media.1.codec.long_name">AAC (Advanced Audio Coding)</property>
-  <property name="meta.media.1.codec.bit_rate">128005</property>
-  <property name="meta.attr.1.stream.creation_time.markup">2025-12-02T21:57:12.000000Z</property>
-  <property name="meta.attr.major_brand.markup">mp42</property>
-  <property name="meta.attr.minor_version.markup">512</property>
-  <property name="meta.attr.compatible_brands.markup">mp41isomiso2</property>
-  <property name="meta.attr.creation_time.markup">2026-08-19T19:56:38.000000Z</property>
-  <property name="seekable">1</property>
-  <property name="meta.media.sample_aspect_num">1</property>
-  <property name="meta.media.sample_aspect_den">1</property>
-  <property name="audio_index">1</property>
-  <property name="video_index">0</property>
-  <property name="warp_speed">1.75</property>
-  <property name="warp_resource">Módulo_Espacial_Chladni_Proyecto_Final_Sonido_en_Videojuegos.mp4</property>
-  <property name="mlt_service">timewarp</property>
-  <property name="kdenlive:control_uuid">{e899eb3a-08ed-4a24-a2d8-0eec49b1d369}</property>
-  <property name="vstream">0</property>
-  <property name="astream">0</property>
-  <property name="set.test_audio">1</property>
-  <property name="set.test_image">0</property>
-  <property name="kdenlive:id">4</property>
-  <property name="warp_pitch">0</property>
-  <property name="meta.media.frame_rate_num">30</property>
-  <property name="meta.media.frame_rate_den">1</property>
-  <property name="meta.media.colorspace">709</property>
-  <property name="meta.media.color_trc">1</property>
-  <property name="meta.media.has_b_frames">1</property>
-  <property name="meta.media.width">1920</property>
-  <property name="meta.media.height">1080</property>
-  <property name="meta.media.aspect_ratio">1</property>
-  <property name="meta.media.color_range">mpeg</property>
-  <property name="meta.media.top_field_first">0</property>
-  <property name="meta.media.progressive">1</property>
- </producer>
  <playlist id="playlist2">
-  <entry in="00:00:07.160" out="00:00:09.400" producer="chain0">
+  <entry in="00:00:05.720" out="00:00:07.520" producer="producer1">
    <property name="kdenlive:id">4</property>
   </entry>
-  <entry in="00:00:14.520" out="00:00:17.960" producer="producer1">
+  <entry in="00:00:14.520" out="00:00:16.520" producer="producer2">
    <property name="kdenlive:id">4</property>
   </entry>
   <entry in="00:00:34.160" out="00:00:35.480" producer="chain0">
@@ -193,7 +253,7 @@
   </entry>
  </playlist>
  <playlist id="playlist3"/>
- <tractor id="tractor1" in="00:00:00.000" out="00:00:16.200">
+ <tractor id="tractor1" in="00:00:00.000" out="00:00:14.320">
   <property name="kdenlive:trackheight">72</property>
   <property name="kdenlive:timeline_active">1</property>
   <property name="kdenlive:collapsed">0</property>
@@ -213,7 +273,7 @@
   <track hide="audio" producer="playlist4"/>
   <track hide="audio" producer="playlist5"/>
  </tractor>
- <tractor id="{309f2884-921b-4011-bb4d-05de2058ae04}" in="00:00:00.000" out="00:00:16.200">
+ <tractor id="{309f2884-921b-4011-bb4d-05de2058ae04}" in="00:00:00.000" out="00:00:14.320">
   <property name="kdenlive:uuid">{309f2884-921b-4011-bb4d-05de2058ae04}</property>
   <property name="kdenlive:clipname">Sequence 1</property>
   <property name="kdenlive:sequenceproperties.hasAudio">1</property>
@@ -222,8 +282,8 @@
   <property name="kdenlive:sequenceproperties.tracksCount">3</property>
   <property name="kdenlive:sequenceproperties.documentuuid">{309f2884-921b-4011-bb4d-05de2058ae04}</property>
   <property name="kdenlive:control_uuid">{309f2884-921b-4011-bb4d-05de2058ae04}</property>
-  <property name="kdenlive:duration">00:00:16.240</property>
-  <property name="kdenlive:maxduration">406</property>
+  <property name="kdenlive:duration">00:00:14.360</property>
+  <property name="kdenlive:maxduration">359</property>
   <property name="kdenlive:producer_type">17</property>
   <property name="kdenlive:id">3</property>
   <property name="kdenlive:clip_type">0</property>
@@ -231,7 +291,7 @@
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:sequenceproperties.audioTarget">0</property>
   <property name="kdenlive:sequenceproperties.disablepreview">0</property>
-  <property name="kdenlive:sequenceproperties.position">405</property>
+  <property name="kdenlive:sequenceproperties.position">318</property>
   <property name="kdenlive:sequenceproperties.scrollPos">0</property>
   <property name="kdenlive:sequenceproperties.tracks">4</property>
   <property name="kdenlive:sequenceproperties.verticalzoom">1</property>
@@ -243,17 +303,27 @@
     {
         "children": [
             {
-                "data": "1:178:-1",
+                "data": "1:46:-1",
                 "leaf": "clip",
                 "type": "Leaf"
             },
             {
-                "data": "1:254:-1",
+                "data": "1:284:-1",
                 "leaf": "clip",
                 "type": "Leaf"
             },
             {
-                "data": "1:331:-1",
+                "data": "1:97:-1",
+                "leaf": "clip",
+                "type": "Leaf"
+            },
+            {
+                "data": "1:131:-1",
+                "leaf": "clip",
+                "type": "Leaf"
+            },
+            {
+                "data": "1:207:-1",
                 "leaf": "clip",
                 "type": "Leaf"
             }
@@ -1509,12 +1579,30 @@
     "serializationVersion": 3
 }</property>
   <property name="kdenlive:docproperties.renderurl">chladni.webm</property>
+  <property name="kdenlive:docproperties.rendercategory">4k</property>
+  <property name="kdenlive:docproperties.rendercustomquality">-1</property>
+  <property name="kdenlive:docproperties.renderendguide">-1</property>
+  <property name="kdenlive:docproperties.renderexportaudio">0</property>
+  <property name="kdenlive:docproperties.renderfullcolorrange">0</property>
+  <property name="kdenlive:docproperties.rendermode">0</property>
+  <property name="kdenlive:docproperties.renderplay">0</property>
+  <property name="kdenlive:docproperties.renderpreview">0</property>
+  <property name="kdenlive:docproperties.renderprofile">WebM-VP9/Opus (libre)</property>
+  <property name="kdenlive:docproperties.renderrescale">0</property>
+  <property name="kdenlive:docproperties.renderrescaleheight">540</property>
+  <property name="kdenlive:docproperties.renderrescalewidth">960</property>
+  <property name="kdenlive:docproperties.renderspeed">6</property>
+  <property name="kdenlive:docproperties.renderstartguide">-1</property>
+  <property name="kdenlive:docproperties.renderstemaudio">0</property>
+  <property name="kdenlive:docproperties.rendertcoverlay">0</property>
+  <property name="kdenlive:docproperties.rendertctype">-1</property>
+  <property name="kdenlive:docproperties.rendertwopass">0</property>
   <property name="xml_retain">1</property>
   <entry in="00:00:00.000" out="00:00:00.000" producer="{309f2884-921b-4011-bb4d-05de2058ae04}"/>
   <entry in="00:00:00.000" out="00:04:02.040" producer="chain1"/>
  </playlist>
- <tractor id="tractor3" in="00:00:00.000" out="00:00:16.200">
+ <tractor id="tractor3" in="00:00:00.000" out="00:00:14.320">
   <property name="kdenlive:projectTractor">1</property>
-  <track in="00:00:00.000" out="00:00:16.200" producer="{309f2884-921b-4011-bb4d-05de2058ae04}"/>
+  <track in="00:00:00.000" out="00:00:14.320" producer="{309f2884-921b-4011-bb4d-05de2058ae04}"/>
  </tractor>
 </mlt>
