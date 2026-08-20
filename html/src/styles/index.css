@@ -773,6 +773,10 @@ form>.send>button:hover {
     font-weight: bolder;
 }
 
+.timeline-item h1 a:hover{
+    color: var(--lila-cynthia);
+} 
+
 .timeline-item::before {
     content: attr(date-is);
     position: absolute;
@@ -811,10 +815,10 @@ form>.send>button:hover {
 
 .skill-titles p {
     margin-top: 0;
-    margin-bottom: 8px;
+    /* margin-bottom: 8px; */
     padding-left: 22px;
     font-weight: bold;
     font-style: italic;
     color: var(--verde-nieves);
-    font-size: 1.3rem;
+    font-size: var(--section-title-size);
 }

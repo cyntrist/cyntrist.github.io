@@ -28,9 +28,9 @@ const translations = {
     sf1: "september -> november 2024",
     sf2: "january -> may 2021",
     s11: "Selected to collaborate on the event's organization and graphic design.",
-    s12: "<a href=\"https://www.valortic.es/\">VALORTIC</a> in-company training",
-    s13: "Automated customer business processes  with Microsoft Power Automate",
-    s21: "Complutense University of Madrid",
+    s12: "<a target=\"_blank\" href=\"https://www.valortic.es/\">VALORTIC</a> in-company training",
+    s13: "Automated customer business processes with Microsoft Power Automate",
+    s21: "<a target=\"_blank\" href=\"https://informatica.ucm.es/estudios/grado-videojuegos2019-estudios-comp\">Complutense University of Madrid</a>",
     s22: "Bachelor's Degree in Videogame Development",
     s23: "Higher Technician in Cross-Platform Application Development ",
 
@@ -51,7 +51,7 @@ const translations = {
     more: "and more!",
 
     footerDate: "August 2026<br>Cynthia Tristán Álvarez",
-    footerText: "Made with Figma in HTML, CSS and JS<br>source code on <a href=\"https://github.com/cyntrist/cyntrist.github.io\">Github</a>"
+    footerText: "Made with Figma in HTML, CSS and JS<br>source code on <a target=\"_blank\" href=\"https://github.com/cyntrist/cyntrist.github.io\">Github</a>"
 
   },
   es: {
@@ -74,9 +74,9 @@ const translations = {
     sf1: "septiembre -> noviembre 2024",
     sf2: "enero -> mayo 2021",
     s11: "Seleccionada para participar en la organización y gestión del evento además de diseño gráfico.",
-    s12: "Formación en <a href=\"https://www.valortic.es/\">VALORTIC",
+    s12: "Formación en <a target=\"_blank\" href=\"https://www.valortic.es/\">VALORTIC",
     s13: "Automatización de procesos de empresas clientes con Microsoft Power Automate",
-    s21: "Universidad Complutense de Madrid",
+    s21: "<a target=\"_blank\" href=\"https://informatica.ucm.es/estudios/grado-videojuegos2019-estudios-comp\">Universidad Complutense de Madrid</a>",
     s22: "Grado en Desarrollo Videojuegos",
     s23: "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
     
