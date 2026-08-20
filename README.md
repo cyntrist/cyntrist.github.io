@@ -6,3 +6,4 @@ The following pens of CodePen were used for the project cards and background eff
 
 - **Shape Wave** by *Stijn Van Minnebruggen*: https://codepen.io/donotfold/pen/yyapzOP
 - **Parallax Depth Cards** by *Andy Merskin*: https://codepen.io/andymerskin/pen/XNMWvQ
+- **Single div timeline** by *Niels Voogt*: https://codepen.io/NielsVoogt/pen/MbMMxv/
