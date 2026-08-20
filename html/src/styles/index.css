@@ -748,22 +748,24 @@ form>.send>button:hover {
 /* Timeline */
 
 
-.skills-container {
-    max-width: 1024px;
+.skills-container,
+.skill-titles {
     width: 90%;
     margin: 0 auto;
 }
 
 .timeline-item {
-    padding: 3em 2em 2em;
+    padding: 0.5rem 1.5rem 0.85rem;
     position: relative;
     color: var(--azul-cynthia);
     border-left: 3px solid var(--azul-cynthia);
 }
 
 .timeline-item p {
+    margin: 0;
     color: var(--blanco-cynthia);
     font-size: 1rem;
+    line-height: 1.35;
 }
 
 .timeline-item h1,
@@ -773,27 +775,32 @@ form>.send>button:hover {
     font-weight: bolder;
 }
 
+.timeline-item h1 {
+    margin: 0 0 0.25rem;
+    font-size: 1.15rem;
+    line-height: 1.25;
+}
+
 .timeline-item h1 a:hover{
     color: var(--lila-cynthia);
 } 
 
 .timeline-item::before {
     content: attr(date-is);
-    position: absolute;
-    left: 2em;
+    display: block;
     font-weight: bold;
     font-style: italic;
-    top: 1em;
-    display: block;
     font-weight: 700;
     font-size: 1rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
 }
 
 .timeline-item::after {
     width: 10px;
     height: 10px;
     display: block;
-    top: 1em;
+    top: 0.65rem;
     position: absolute;
     left: -9px;
     border-radius: 4px;
@@ -810,15 +817,16 @@ form>.send>button:hover {
 .skills {
     flex-direction: column;
     color: var(--blanco-cynthia);
-    gap: 24px;
+    gap: 14px;
 }
 
 .skill-titles p {
     margin-top: 0;
-    /* margin-bottom: 8px; */
-    padding-left: 22px;
+    margin-bottom: 8px;
+    padding-left: 0;
     font-weight: bold;
     font-style: italic;
     color: var(--verde-nieves);
-    font-size: var(--section-title-size);
+    font-size: 1.15rem;
+    line-height: 1.1;
 }
