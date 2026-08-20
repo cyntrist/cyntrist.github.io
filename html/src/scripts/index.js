@@ -11,8 +11,8 @@ const translations = {
   en: {
     roleDeveloper: "Game developer", 
     roleDesigner: "designer",
-    profileTitle: "About", 
-    skillsTitle: "Experience",
+    profileTitle: "Info", 
+    skillsTitle: "Profile",
     projectsTitle: "Projects", 
     linksTitle: "Contact",
 
@@ -22,7 +22,19 @@ const translations = {
     resume: "Resume",
     mail:"Mail",
 
-    d1: "Rhythm videogame in Godot compatible with guitar controller and data-driven levels by a team of 4 people.",
+    s1: "Experience",
+    s2: "Education",
+    s3: "Skills",
+    sf1: "september -> november 2024",
+    sf2: "january -> may 2021",
+    s11: "Selected to collaborate on the event's organization and graphic design.",
+    s12: "<a href=\"https://www.valortic.es/\">VALORTIC</a> in-company training",
+    s13: "Automated customer business processes  with Microsoft Power Automate",
+    s21: "Complutense University of Madrid",
+    s22: "Bachelor's Degree in Videogame Development",
+    s23: "Higher Technician in Cross-Platform Application Development ",
+
+    d1: "Rhythm videogame in Godot compatible with guitar controller and data-driven levels by a team of 4 people for a 5-day jam.",
     d2: "Data-driven Entity-Component 3D game engine written in C++ with hot-reloading and scripting for Windows by a team of 10 people.",
     d3: "Arcade 3D physics-based videogame made in CHAVALES Engine.",
     d4: "Unity videogame and simulator of the physical model of the Chladni plates in 2D with FMOD by a team of 2 people.",
@@ -45,8 +57,8 @@ const translations = {
   es: {
     roleDeveloper: "Game developer",
     roleDesigner: "designer",
-    profileTitle: "Perfil", 
-    skillsTitle: "Experiencia",
+    profileTitle: "Info", 
+    skillsTitle: "Perfil",
     projectsTitle: "Proyectos", 
     linksTitle: "Contacto",
 
@@ -56,7 +68,20 @@ const translations = {
     resume:"CV",
     mail:"Correo",
 
-    d1: "Videojuego de ritmo en Godot compatible con controlador de guitarra y niveles dirigidos por datos realizado en equipo de 4 personas.",
+    s1: "Experiencia",
+    s2: "Formación",
+    s3: "Habilidades",
+    sf1: "septiembre -> noviembre 2024",
+    sf2: "enero -> mayo 2021",
+    s11: "Seleccionada para participar en la organización y gestión del evento además de diseño gráfico.",
+    s12: "Formación en <a href=\"https://www.valortic.es/\">VALORTIC",
+    s13: "Automatización de procesos de empresas clientes con Microsoft Power Automate",
+    s21: "Universidad Complutense de Madrid",
+    s22: "Grado en Desarrollo Videojuegos",
+    s23: "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
+    
+
+    d1: "Videojuego de ritmo en Godot compatible con controlador de guitarra y niveles dirigidos por datos realizado en equipo de 4 personas para una jam de 5 días.",
     d2: "Motor Entidad-Componente escrito en C++ y dirigido por datos en Lua con carga en caliente y scripting para Windows hecho por un equipo de 10 personas.",
     d3: "Videojuego arcade basado en físicas 3D hecho en CHAVALES Engine.",
     d4: "Videojuego en Unity con FMOD y simulador del modelo físico de las placas de Chladni en 2D por un equipo de 2 personas.",
@@ -83,6 +108,10 @@ function setLanguage(language) {
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const value = translations[selectedLanguage][element.dataset.i18n];
     if (value !== undefined) element.innerHTML = value.replace(/\n\n/g, "<br><br>");
+  });
+  document.querySelectorAll("[data-i18n-date]").forEach((element) => {
+    const value = translations[selectedLanguage][element.dataset.i18nDate];
+    if (value !== undefined) element.setAttribute("date-is", value);
   });
   document.querySelectorAll("[data-language]").forEach((link) => {
     link.setAttribute("aria-current", link.dataset.language === selectedLanguage ? "true" : "false");
