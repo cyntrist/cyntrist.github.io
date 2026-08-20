@@ -10,11 +10,12 @@
     --lila-cynthia: #DFB1F1;
     --verde-nieves: #71BC20;
     --bg-size: 128px;
-    --section-title-size: clamp(1.1rem, 4vw, 1.5rem);
-    --body-text-size: clamp(1rem, 0.5vw, 1.2rem);
+    --section-title-size: clamp(1.2rem, 4vw, 1.5rem);
+    --body-text-size: clamp(1.1rem, 1vw, 1.5rem);
     --card-title-size: clamp(1.5rem, 2.2vw + 0.9rem, 2rem);
-    --card-description-size: clamp(0.95rem, 0.55vw + 0.82rem, 1.1rem);
-    --nav-text-size: clamp(1rem, 1.4vw + 0.7rem, 1.45rem);
+    /* --card-description-size: clamp(0.95rem, 0.55vw + 0.82rem, 1.1rem); */
+    --card-description-size: clamp(1rem, 1vw, 1.5rem);
+    --nav-text-size: clamp(1rem, 4vmin, 2rem);
 }
 
 * {
@@ -266,7 +267,7 @@ textarea {
 }
 
 .bar .bar-element {
-    font-size: clamp(4vmin, var(--nav-text-size) + 0.5rem, 6vmin);
+    font-size: var(--nav-text-size);
 
 }
 
@@ -276,7 +277,7 @@ textarea {
     flex-direction: column;
     color: var(--roto-cynthia);
     /* font-size: 150%; */
-    font-size: 4vmin;
+    font-size: var(--nav-text-size);
     font-family: Cascadia Code;
     font-style: italic;
     font-weight: bold;
@@ -294,7 +295,7 @@ textarea {
     background: var(--negro-cynthia);
     justify-content: center;
     align-items: flex-start;
-    gap: 3vw;
+    gap: 2vw;
     display: inline-flex;
 }
 
@@ -353,7 +354,7 @@ footer {
     align-items: flex-start;
     gap: 10px;
     display: flex;
-    font-size: 75%;
+    font-size: var(--body-text-size);
 }
 
 hr {
@@ -366,7 +367,7 @@ hr {
 
 .lang {
     color: var(--blanco-cynthia);
-    font-size: 125%;
+    font-size: var(--section-title-size);
     padding: 12px;
     background-color: var(--negro-cynthia);
     border-style: solid;
@@ -470,14 +471,15 @@ label {
     width: auto;
     justify-self: end;
     text-align: right;
-    color: var(--azul-cynthia)
+    color: var(--azul-cynthia);
+    font-size: var(--body-text-size);
 }
 
 input,
 textarea {
     /* To give the same size to all text field */
     width: 100%;
-    font-size: 100%;
+    font-size: var(--body-text-size);
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     color: var(--verde-nieves)
@@ -517,7 +519,7 @@ form>.send>button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 100%;
+    font-size: var(--body-text-size);
     transition-duration: 0.4s;
     cursor: pointer;
     /* border: 2px solid var(--negro-cynthia); */
@@ -536,6 +538,7 @@ form>.send>button:hover {
 .contact-stitle {
     color: var(--blanco-cynthia);
     text-align: center;
+    font-size: var(--body-text-size);
     margin-bottom: 16px;
 }
 
@@ -611,7 +614,7 @@ form>.send>button:hover {
     width: 100%;
     aspect-ratio: 16 / 7;
     min-height: 220px;
-    max-height: 320px;
+    max-height: 420px;
     background-color: var(--negro-cynthia);
     overflow: hidden;
     /* border-radius: 8px; */
@@ -764,7 +767,7 @@ form>.send>button:hover {
 .timeline-item p {
     margin: 0;
     color: var(--blanco-cynthia);
-    font-size: 1rem;
+    font-size: var(--body-text-size);
     line-height: 1.35;
 }
 
@@ -777,8 +780,9 @@ form>.send>button:hover {
 
 .timeline-item h1 {
     margin: 0 0 0.25rem;
-    font-size: 1.15rem;
+    font-size: var(--body-text-size);
     line-height: 1.25;
+    font-weight: 700;
 }
 
 .timeline-item h1 a:hover{
@@ -791,7 +795,7 @@ form>.send>button:hover {
     font-weight: bold;
     font-style: italic;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: var(--body-text-size);
     line-height: 1.1;
     margin-bottom: 0.5rem;
 }

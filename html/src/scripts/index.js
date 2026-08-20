@@ -125,8 +125,8 @@ function setLanguage(language) {
 
   const navbar = document.querySelector("#navbar");
   if (navbar) {
-    navbar.classList.toggle("navbar-es", selectedLanguage === "es");
-    navbar.style.gap = selectedLanguage == "es" ? "2vw" : "3vw";
+    // navbar.classList.toggle("navbar-es", selectedLanguage === "es");
+    // navbar.style.gap = selectedLanguage == "es" ? "2vw" : "3vw";
   }
 
   localStorage.setItem("preferred-language", selectedLanguage);
