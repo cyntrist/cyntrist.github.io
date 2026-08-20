@@ -23,11 +23,11 @@ const translations = {
     mail:"Mail",
 
     d1: "Rhythm videogame in Godot compatible with guitar controller and data-driven levels by a team of 4 people.",
-    d2: "Data-driven Entity-Component game engine written in C++ with Lua and C++ hot-reloading for Windows by a team of 10 people.",
-    d3: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    d2: "Data-driven Entity-Component 3D game engine written in C++ with hot-reloading and scripting for Windows by a team of 10 people.",
+    d3: "Arcade 3D physics-based videogame made in CHAVALES Engine.",
     d4: "Unity videogame and simulator of the physical model of the Chladni plates in 2D with FMOD by a team of 2 people.",
     d5: "Horror videogame in Godot for the 2024 SCREAM JAM, ranked #5 in narrative category.",
-    d6: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    d6: "Deck-building videogame with local 1v1 multiplayer and PSX aesthetic written in C++ with SDL by a team of 11 people.",
 
     contactFirst: "Get in touch via",
     contactLast:"or fill this form:",
@@ -57,11 +57,11 @@ const translations = {
     mail:"Correo",
 
     d1: "Videojuego de ritmo en Godot compatible con controlador de guitarra y niveles dirigidos por datos realizado en equipo de 4 personas.",
-    d2: "Motor Entidad-Componente escrito en C++ y dirigido por datos con carga en caliente para Windows hecho por un equipo de 10 personas.",
-    d3: "Lorem ipsum pero es en español.",
+    d2: "Motor Entidad-Componente escrito en C++ y dirigido por datos en Lua con carga en caliente y scripting para Windows hecho por un equipo de 10 personas.",
+    d3: "Videojuego arcade basado en físicas 3D hecho en CHAVALES Engine.",
     d4: "Videojuego en Unity con FMOD y simulador del modelo físico de las placas de Chladni en 2D por un equipo de 2 personas.",
     d5: "Videojuego de horror en Godot para la SCREAM JAM 2024, 5º puesto en categoría narrativa.",
-    d6: "Lorem ipsum pero es en español.",
+    d6: "Videojuego de deck-building con multijugador 1v1 local y estética PSX escrito en C++ con SDL por un equipo de 11 personas.",
     more: "¡y más!",
 
     contactFirst: "Envía un correo a",
