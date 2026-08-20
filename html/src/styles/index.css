@@ -588,7 +588,7 @@ form>.send>button:hover {
 }
 
 .card-wrap:hover .card-info:after {
-    transition: 5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: 1.2s cubic-bezier(0.23, 1, 0.32, 1);
     opacity: 1;
     transform: translateY(0);
 }
@@ -684,11 +684,11 @@ form>.send>button:hover {
     z-index: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+    background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
     background-blend-mode: overlay;
     opacity: 0;
     transform: translateY(100%);
-    transition: 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    transition: 1s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
 .card-info h1 {
