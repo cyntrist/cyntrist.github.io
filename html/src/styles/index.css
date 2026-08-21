@@ -12,6 +12,7 @@
     --bg-size: 128px;
     --section-title-size: clamp(1.2rem, 4vw, 1.5rem);
     --body-text-size: clamp(1.1rem, 1vw, 1.5rem);
+    --skill-title-size: clamp(1.2rem, 2vw, 1.3rem);
     --card-title-size: clamp(1.5rem, 2.2vw + 0.9rem, 2.5rem);
     /* --card-description-size: clamp(0.95rem, 0.55vw + 0.82rem, 1.1rem); */
     --card-description-size: clamp(1rem, 1vw, 1.5rem);
@@ -299,12 +300,25 @@ textarea {
     align-items: flex-start;
     gap: 2vw;
     display: inline-flex;
+    margin: auto;
+    isolation: isolate;
 }
 
-#navbar.navbar-es a[data-i18n] {
-    font-size: 3.9vmin;
-    /* letter-spacing: -0.04em; */
+#navbar::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    left: 50%;
+    z-index: -1;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: var(--negro-cynthia);
 }
+
+/* #navbar.navbar-es a[data-i18n] { */
+    /* font-size: 3.9vmin; */
+    /* letter-spacing: -0.04em; */
+/* } */
 
 
 
@@ -625,7 +639,7 @@ form>.send>button:hover {
     aspect-ratio: 16 / 7;
     /* min-height: 220px;
     max-height: 420px; */
-    min-height: 30vh;
+    min-height: 45vh;
     max-height: 60vh;
     background-color: var(--negro-cynthia);
     overflow: hidden;
@@ -794,7 +808,7 @@ form>.send>button:hover {
 
 .timeline-item h1 {
     margin: 0 0 0.25rem;
-    font-size: var(--body-text-size);
+    font-size: var(--skill-title-size);
     line-height: 1.25;
     font-weight: 700;
 }
