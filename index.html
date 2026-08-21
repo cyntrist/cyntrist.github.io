@@ -3,14 +3,22 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Cynthia Tristán</title>
+  <title>Cynthia Tristán Álvarez</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
   <link rel="stylesheet" href="src/styles/index.css">
-  <script src="src/scripts/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js" defer></script>
+  <script src="src/scripts/index.js" defer></script>
+  <meta property="og:title" content="Cynthia Tristán Álvarez">
+  <meta property="og:description" content="Portfolio">
+  <meta property="og:image" content="https://github.com/cyntrist/cyntrist.github.io/blob/main/html/assets/img/eye.png">
+  <meta property="og:url" content="https://cyntrist.github.com">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body>
+  <canvas class="page-background" aria-hidden="true"></canvas>
+
   <!-- main -->
   <div class="main">
 
@@ -70,21 +78,18 @@
           <img class="mug" src="./assets/img/mug2.png" />
           <!-- <div class="mug">
           </div> -->
-          <div class="text" data-i18n="profileText">
-            Proin porttitor at ante sit amet feugiat. Ut nec nisi urna. Sed ultricies lacus lectus, quis euismod augue
-            condimentum vitae. Nunc efficitur neque eget turpis posuere, in fringilla odio rhoncus. Maecenas sed quam
-            dui. Maecenas laoreet erat orci, malesuada egestas purus hendrerit ut. <br> <br>Nulla iaculis ullamcorper
-            euismod. Etiam efficitur fringilla diam, ac placerat sapien tempus porttitor. Nulla scelerisque leo quis leo
-            pulvinar, et fermentum lacus ornare. In pulvinar pharetra magna.
-          </div>
-          <div class="buttons">
-            <a href="./assets/files/cynthiatristan-cv-en.pdf" download="cynthiatristan-cv-en.pdf" class="button resume"
-              data-i18n="resume">Resume</a>
-            <!-- <a href="#" class="button mail" data-user="" data-domain="" data-i18n="mail">Mail</a> -->
-            <a target="_blank" rel="noopener noreferrer" href="https://github.com/cyntrist"
-              class="button github">GitHub</a>
-            <a target="_blank" rel="noopener noreferrer" href="https://cyntrist.itch.io/"
-              class="button itch">itch.io</a>
+          <div class="desc">
+            <div class="text" data-i18n="profileText">
+
+            </div>
+            <div class="buttons">
+              <a href="./assets/files/cynthiatristan-cv-en.pdf" download="cynthiatristan-cv-en.pdf"
+                class="button resume" data-i18n="resume">Resume</a>
+              <a href="mailto:portfolio.regular750@passinbox.com" class="button mail" data-i18n="mail">Mail</a>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/cyntrist"
+                class="button github">GitHub</a>
+              <a target="_blank" rel="noopener noreferrer" href="https://cyntrist.itch.io/" class="button itch">itch</a>
+            </div>
           </div>
         </div>
 
@@ -106,15 +111,94 @@
           <hr>
         </div>
 
-        <div class="cdiv">
+        <div class="cdiv skills">
+          <!-- <div class="text" data-i18n="skillsText">
 
-          <div class="text" data-i18n="skillsText">
-            Proin porttitor at ante sit amet feugiat. Ut nec nisi urna. Sed ultricies lacus lectus, quis euismod augue
-            condimentum vitae. Nunc efficitur neque eget turpis posuere, in fringilla odio rhoncus. Maecenas sed quam
-            dui. Maecenas laoreet erat orci, malesuada egestas purus hendrerit ut. <br> <br>Nulla iaculis ullamcorper
-            euismod. Etiam efficitur fringilla diam, ac placerat sapien tempus porttitor. Nulla scelerisque leo quis leo
-            pulvinar, et fermentum lacus ornare. In pulvinar pharetra magna.
+          </div> -->
+
+
+          <div class="bloc-experiencia">
+            <div class="skill-titles">
+              <p data-i18n="s1">Experiencia</p>
+            </div>
+            <div class="skills-container">
+
+              <div class="timeline-item" date-is="septiembre -> noviembre 2024" data-i18n-date="sf1">
+                <h1><a href="https://guerrillagamefestival.es/">Guerrilla Game Festival</a></h1>
+                <p data-i18n="s11">
+                  Organización, gestión y planificación + Diseño gráfico
+                </p>
+              </div>
+
+
+              <div class="timeline-item" date-is="enero -> mayo 2021" data-i18n-date="sf2">
+                <h1 data-i18n="s12">Formación en <a href="https://www.valortic.es/">VALORTIC</a></h1>
+                <p data-i18n="s13">
+                  Automatización de procesos de empresas clientes con Microsoft Power Automate
+                </p>
+              </div>
+            </div>
           </div>
+
+          <div class="bloc-formacion">
+            <div class="skill-titles">
+              <p data-i18n="s2">Formación</p>
+            </div>
+
+            <div class="skills-container">
+
+              <div class="timeline-item" date-is='2022 -> 2027'>
+                <h1 data-i18n="s21">Universidad Complutense de Madrid</h1>
+                <p data-i18n="s22">
+                  Grado en Desarrollo de Videojuegos <br>(6 matrículas de honor/media de 8'04)
+                </p>
+              </div>
+
+              <div class="timeline-item" date-is='2020 -> 2022'>
+                <h1><a href="https://www.planetafp.es/grado-superior-desarrollo-de-aplicaciones-multiplataforma">Planeta
+                    FP</a></h1>
+                <p data-i18n="s23">
+                  Técnico Superior en Desarrollo de Aplicaciones Multiplataforma
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="bloc-habilidades">
+            <div class="skill-titles">
+              <p data-i18n="s3">Habilidades</p>
+            </div>
+
+            <div class="skill-columns">
+              <div>
+                <p><span>></span> <b>C++14/17</b></p>
+                <p><span>></span> C</p>
+                <p><span>></span> C#</p>
+                <p><span>></span> CUDA</p>
+                <p><span>></span> GDScript</p>
+                <p><span>></span> SDL</p>
+              </div>
+              <div>
+                <p><span>></span> Godot</p>
+                <p><span>></span> Unity</p>
+                <p><span>></span> Git/Github</p>
+                <p><span>></span> Windows/Linux</p>
+                <p><span>></span> Containers</p>
+                <p><span>></span> OpenGL</p>
+              </div>
+              <div>
+                <p><span>></span> Figma</p>
+                <p><span>></span> FMOD</p>
+                <p><span>></span> Audacity</p>
+                <p><span>></span> Photoshop</p>
+                <p><span>></span> Aseprite</p>
+                <p><span>></span> PhysX</p>
+              </div>
+            </div>
+
+          </div>
+
         </div>
 
         <div class="ddiv">
@@ -135,20 +219,51 @@
           <hr>
         </div>
 
-        <div class="cdiv">
+        <div class="cdiv pdiv">
+          <div id="app" class="container">
+            <card href="https://paseriforme.itch.io/hoy-tocan-las-magnolias" data-video="./assets/webm/magnolias.webm">
+              <h1 slot="header">Hoy tocan Las Magnolias</h1>
+              <p data-i18n="d1" slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum
+                dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit.</p>
+            </card>
+            <!-- <div class="bar-element">✦</div> -->
+            <card href="" data-video="./assets/webm/chavales.webm">
 
-          <div class="text" data-i18n="projectsText">
-            Proin porttitor at ante sit amet feugiat. Ut nec nisi urna. Sed ultricies lacus lectus, quis euismod augue
-            condimentum vitae. Nunc efficitur neque eget turpis posuere, in fringilla odio rhoncus. Maecenas sed quam
-            dui. Maecenas laoreet erat orci, malesuada egestas purus hendrerit ut. <br> <br>Nulla iaculis ullamcorper
-            euismod. Etiam efficitur fringilla diam, ac placerat sapien tempus porttitor. Nulla scelerisque leo quis leo
-            pulvinar, et fermentum lacus ornare. In pulvinar pharetra magna.
+              <h1 slot="header">CHAVALES Engine</h1>
+              <p data-i18n="d2" slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </card>
+            <!-- <div class="bar-element">✦</div> -->
+            <card href="https://nievalon.itch.io/tirabolas" data-video="./assets/webm/tirabolas.webm">
+
+              <h1 slot="header">TIRABOLAS</h1>
+              <p data-i18n="d3" slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </card>
+            <!-- <div class="bar-element">✦</div> -->
+            <card href="https://nievalon.itch.io/modulo-espacial-chladni" data-video="./assets/webm/chladni.webm">
+
+              <h1 slot="header">MÓDULO ESPACIAL CHLADNI</h1>
+              <p data-i18n="d4" slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </card>
+            <!-- <div class="bar-element">✦</div> -->
+            <card href="https://nievalon.itch.io/hello-connect-me-with" data-video="./assets/webm/hello.webm">
+
+              <h1 slot="header">Hello, connect me with...</h1>
+              <p data-i18n="d5" slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </card>
+            <!-- <div class="bar-element">✦</div> -->
+            <card href="https://nievalon.itch.io/hollenhaus" data-video="./assets/webm/hollenhaus.webm">
+
+              <h1 slot="header">HÖLLENHAUS</h1>
+              <p data-i18n="d6" slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </card>
           </div>
         </div>
-
+        <a target="_blank" rel="noopener noreferrer" href="https://cyntrist.itch.io/" class="button itch more"
+          data-i18n="more">itch.io</a>
         <div class="ddiv">
           <hr>
-
           <div class="text" id="domino">
             <b>🁻</b>
           </div>
@@ -163,10 +278,10 @@
           </div>
           <hr>
         </div>
-        
+
         <div class="contact-stitle">
           <div data-i18n="contactFirst">Get in touch via</div>
-          <div><i><b>cyntrist✦proton✧me</i></b></div>
+          <div><a href="mailto:portfolio.regular750@passinbox.com"><i><b>cyntrist✦@✦proton✧.✧me</i></b></a></div>
           <div data-i18n="contactLast">or fill this form:</div>
         </div>
         <div class="contact-div">
@@ -195,13 +310,6 @@
               <button type="submit" data-i18n="formSend">Send</button>
             </div>
           </form>
-          <!-- <div class="text" data-i18n="linksText">
-            Proin porttitor at ante sit amet feugiat. Ut nec nisi urna. Sed ultricies lacus lectus, quis euismod augue
-            condimentum vitae. Nunc efficitur neque eget turpis posuere, in fringilla odio rhoncus. Maecenas sed quam
-            dui. Maecenas laoreet erat orci, malesuada egestas purus hendrerit ut. <br> <br>Nulla iaculis ullamcorper
-            euismod. Etiam efficitur fringilla diam, ac placerat sapien tempus porttitor. Nulla scelerisque leo quis leo
-            pulvinar, et fermentum lacus ornare. In pulvinar pharetra magna.
-          </div> -->
         </div>
 
         <div class="ddiv">
