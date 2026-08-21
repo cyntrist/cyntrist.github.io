@@ -890,5 +890,6 @@ form>.send>button:hover {
 @media (max-width: 599px) {
     .skill-columns {
         grid-template-columns: 1fr;
+        gap: 4px;
     }
 }
