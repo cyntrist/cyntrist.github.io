@@ -9,18 +9,18 @@ const resumeFiles = {
 // LOCALIZACION
 const translations = {
   en: {
-    roleDeveloper: "Game developer", 
+    roleDeveloper: "Game developer",
     roleDesigner: "designer",
-    profileTitle: "Info", 
+    profileTitle: "Info",
     skillsTitle: "Profile",
-    projectsTitle: "Projects", 
+    projectsTitle: "Projects",
     linksTitle: "Contact",
 
     profileText: "Hi! I'm Cynthia Tristán, avid gamer and maker currently based in Spain.\n\nThank you for visting my portfolio, hope you have fun looking around.\n\nMore cool experiences are always on the way!",
     skillsText: "",
     projectsText: "",
     resume: "Resume",
-    mail:"Mail",
+    mail: "Mail",
 
     s1: "Experience",
     s2: "Education",
@@ -42,7 +42,7 @@ const translations = {
     d6: "Deck-building videogame with local 1v1 multiplayer and PSX aesthetic written in C++ with SDL by a team of 11 people.",
 
     contactFirst: "Get in touch via",
-    contactLast:"or fill this form:",
+    contactLast: "or fill this form:",
     formName: "Name:",
     formEmail: "Email:",
     formSubject: "Subject:",
@@ -57,16 +57,16 @@ const translations = {
   es: {
     roleDeveloper: "Game developer",
     roleDesigner: "designer",
-    profileTitle: "Info", 
+    profileTitle: "Info",
     skillsTitle: "Perfil",
-    projectsTitle: "Proyectos", 
+    projectsTitle: "Proyectos",
     linksTitle: "Contacto",
 
     profileText: "¡Hola! Soy Cynthia Tristán, entusiasta jugadora y creadora actualmente viviendo en España.\n\nGracias por visitar mi portafolio, espero que te lo pases bien echando un vistazo.\n\n¡Más experiencias chulas siempre en camino!",
     skillsText: "Texto en en español.\n\nSalto de línea.",
     projectsText: "Texto en en español.\n\nSalto de línea.",
-    resume:"CV",
-    mail:"Correo",
+    resume: "CV",
+    mail: "Correo",
 
     s1: "Experiencia",
     s2: "Formación",
@@ -79,7 +79,7 @@ const translations = {
     s21: "<a target=\"_blank\" href=\"https://informatica.ucm.es/estudios/grado-videojuegos2019-estudios-comp\">Universidad Complutense de Madrid</a>",
     s22: "Grado en Desarrollo Videojuegos",
     s23: "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
-    
+
 
     d1: "Videojuego de ritmo en Godot compatible con controlador de guitarra y niveles dirigidos por datos realizado en equipo de 4 personas para una jam de 5 días.",
     d2: "Motor Entidad-Componente escrito en C++ y dirigido por datos en Lua con carga en caliente y scripting para Windows hecho por un equipo de 10 personas.",
@@ -90,7 +90,7 @@ const translations = {
     more: "¡y más!",
 
     contactFirst: "Envía un correo a",
-    contactLast:"o rellena este formulario:",
+    contactLast: "o rellena este formulario:",
     formName: "Nombre:",
     formEmail: "Correo:",
     formSubject: "Asunto:",
@@ -708,7 +708,7 @@ Vue.component('card', {
       this.pauseCardVideo();
 
       if (enableCardMotion) {
-        this.mouseLeaveDelay = setTimeout(()=>{
+        this.mouseLeaveDelay = setTimeout(() => {
           this.mouseX = 0;
           this.mouseY = 0;
         }, 1000);
@@ -731,7 +731,7 @@ Vue.component('card', {
 
       const playRequest = video.play();
       if (playRequest && typeof playRequest.catch === "function") {
-        playRequest.catch(() => {});
+        playRequest.catch(() => { });
       }
     },
     pauseCardVideo() {
