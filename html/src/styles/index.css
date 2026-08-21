@@ -16,6 +16,7 @@
     /* --card-description-size: clamp(0.95rem, 0.55vw + 0.82rem, 1.1rem); */
     --card-description-size: clamp(1rem, 1vw, 1.5rem);
     --nav-text-size: clamp(1rem, 4vmin, 2rem);
+    --desktop-content-width: min(90vw, 900px);
 }
 
 * {
@@ -387,9 +388,14 @@ hr {
 }
 
 @media (min-width: 600px) {
+    #navbar,
     .slice {
-        /* width: 66vw; */
-        max-width: 50%;
+        width: var(--desktop-content-width);
+        max-width: none;
+    }
+
+    #navbar {
+        align-self: center;
     }
 
     .header img {
@@ -424,7 +430,9 @@ hr {
 } */
 
 #domino {
-    color: var(--lila-cynthia)
+    color: var(--lila-cynthia);
+    font-size: var(--section-title-size);
+    font-weight: 700;
 }
 
 .contact-div {
