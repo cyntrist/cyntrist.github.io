@@ -537,6 +537,88 @@ function initializePageBackground() {
 
 const enableCardMotion = false;
 
+const mobileCards = new Map();
+let activeMobileCard = null;
+let mobileCardObserver = null;
+let mobileCardUpdateFrame = null;
+
+function getVisibleArea(element) {
+  const rect = element.getBoundingClientRect();
+  const visibleWidth = Math.max(0, Math.min(rect.right, window.innerWidth) - Math.max(rect.left, 0));
+  const visibleHeight = Math.max(0, Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0));
+  return visibleWidth * visibleHeight;
+}
+
+function updateActiveMobileCard() {
+  mobileCardUpdateFrame = null;
+
+  let nextActiveCard = null;
+  let largestVisibleArea = 0;
+
+  mobileCards.forEach((card, element) => {
+    if (!card.isMobileCard) return;
+
+    const visibleArea = getVisibleArea(element);
+    if (visibleArea > largestVisibleArea) {
+      largestVisibleArea = visibleArea;
+      nextActiveCard = card;
+    }
+  });
+
+  if (nextActiveCard !== activeMobileCard) {
+    if (activeMobileCard) activeMobileCard.pauseCardVideo();
+    activeMobileCard = nextActiveCard;
+    if (activeMobileCard) activeMobileCard.playCardVideo();
+  }
+
+  mobileCards.forEach(card => {
+    if (card.isMobileCard && card !== activeMobileCard) {
+      card.pauseCardVideo();
+    }
+  });
+}
+
+function scheduleMobileCardUpdate() {
+  if (mobileCardUpdateFrame !== null) return;
+  mobileCardUpdateFrame = window.requestAnimationFrame(updateActiveMobileCard);
+}
+
+function registerMobileCard(card) {
+  const element = card.$refs.card;
+  if (!element) return;
+
+  mobileCards.set(element, card);
+
+  if ("IntersectionObserver" in window) {
+    if (!mobileCardObserver) {
+      const thresholds = Array.from({ length: 21 }, (_, index) => index / 20);
+      mobileCardObserver = new IntersectionObserver(scheduleMobileCardUpdate, {
+        threshold: thresholds
+      });
+    }
+    mobileCardObserver.observe(element);
+  }
+
+  scheduleMobileCardUpdate();
+}
+
+function unregisterMobileCard(card) {
+  const element = card.$refs.card;
+  if (element) {
+    if (mobileCardObserver) mobileCardObserver.unobserve(element);
+    mobileCards.delete(element);
+  }
+
+  if (activeMobileCard === card) activeMobileCard = null;
+
+  if (mobileCards.size === 0 && mobileCardObserver) {
+    mobileCardObserver.disconnect();
+    mobileCardObserver = null;
+  }
+
+  scheduleMobileCardUpdate();
+}
+
 Vue.config.devtools = true;
 
 Vue.component('card', {
@@ -561,7 +643,6 @@ Vue.component('card', {
           :style="cardBgTransform"
           :src="dataVideo"
           :poster="dataImage || null"
-          :autoplay="isMobileCard"
           muted
           loop
           playsinline
@@ -592,6 +673,7 @@ Vue.component('card', {
     } else {
       this.mobileCardQuery.addListener(this.handleMobileCardChange);
     }
+    registerMobileCard(this);
     this.$nextTick(this.updateCardBounds);
     this.$nextTick(this.syncMobileCardVideo);
   },
@@ -605,6 +687,7 @@ Vue.component('card', {
         this.mobileCardQuery.removeListener(this.handleMobileCardChange);
       }
     }
+    unregisterMobileCard(this);
     this.pauseCardVideo();
   },
   props: {
@@ -720,9 +803,10 @@ Vue.component('card', {
     },
     syncMobileCardVideo() {
       if (this.isMobileCard) {
-        this.playCardVideo();
+        scheduleMobileCardUpdate();
       } else {
         this.pauseCardVideo();
+        scheduleMobileCardUpdate();
       }
     },
     playCardVideo() {

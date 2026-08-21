@@ -133,7 +133,7 @@ body::after {
 }
 
 .tdiv .text {
-    text-align: left;
+    text-align: center;
     color: var(--coral-cynthia);
     font-weight: bold;
     font-size: var(--section-title-size);
