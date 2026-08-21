@@ -173,7 +173,7 @@ body::after {
 
 .mug {
     width: 100%;
-    max-height: 256px;
+    max-height: 30vmin;
     object-fit: scale-down;
     /* height: min-content; */
     align-self: center;
@@ -281,7 +281,6 @@ textarea {
     color: var(--roto-cynthia);
     /* font-size: 150%; */
     font-size: var(--nav-text-size);
-    font-family: Cascadia Code;
     font-style: italic;
     font-weight: bold;
     word-wrap: break-word;
@@ -861,4 +860,36 @@ form>.send>button:hover {
     color: var(--verde-nieves);
     font-size: var(--section-title-size);
     line-height: 1.1;
+}
+
+.skill-columns {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.skill-columns > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.skill-columns p {
+    margin: 0;
+    color: var(--blanco-cynthia);
+    font-size: var(--body-text-size);
+}
+
+.skill-columns span {
+    color: var(--azul-cynthia);
+    font-weight: 700;
+    font-size: var(--skill-title-size);
+}
+
+@media (max-width: 599px) {
+    .skill-columns {
+        grid-template-columns: 1fr;
+    }
 }
