@@ -9,14 +9,14 @@ const resumeFiles = {
 // LOCALIZACION
 const translations = {
   en: {
-    roleDeveloper: "Game developer",
-    roleDesigner: "designer",
+    roleDeveloper: "Game Designer",
+    roleDesigner: "Developer",
     profileTitle: "Info",
     skillsTitle: "Profile",
     projectsTitle: "Projects",
     linksTitle: "Contact",
 
-    profileText: "Hi! I'm Cynthia Tristán, avid gamer and maker currently based in Spain.\n\nThank you for visting my portfolio, hope you have fun looking around.\n\nMore cool experiences are always on the way!",
+    profileText: "Hi! I'm Cynthia Tristán, avid gamer and maker currently based in Spain.\n\nMy specialties are C++ and adaptability: I can take on various roles within a team ranging from gameplay design and development to UI/UX, sound and polishing, as well as tool development and hardware acceleration.\n\nAs of now I'm looking for an internship, learning Unreal Engine and working on my final degree project which focuses on haptic interaction, real-time mesh destruction and controller prototyping.\n\nThank you for visting my portfolio, hope you have fun looking around.\n\nMore cool experiences are always on the way!",
     skillsText: "",
     projectsText: "",
     resume: "Resume",
@@ -40,6 +40,7 @@ const translations = {
     d4: "Unity videogame and simulator of the physical model of the Chladni plates in 2D with FMOD by a team of 2 people.",
     d5: "Horror videogame in Godot for the 2024 SCREAM JAM, ranked #5 in narrative category.",
     d6: "Deck-building videogame with local 1v1 multiplayer and PSX aesthetic written in C++ with SDL by a team of 11 people.",
+    d7: "Proof of concept of a real-time normal map 3D painting application made in Godot and accelerated via compute shaders.",
 
     contactFirst: "Get in touch via",
     contactLast: "or fill this form:",
@@ -55,14 +56,14 @@ const translations = {
 
   },
   es: {
-    roleDeveloper: "Game developer",
-    roleDesigner: "designer",
+    roleDeveloper: "Game Designer",
+    roleDesigner: "Developer",
     profileTitle: "Info",
     skillsTitle: "Perfil",
     projectsTitle: "Proyectos",
     linksTitle: "Contacto",
 
-    profileText: "¡Hola! Soy Cynthia Tristán, entusiasta jugadora y creadora actualmente viviendo en España.\n\nGracias por visitar mi portafolio, espero que te lo pases bien echando un vistazo.\n\n¡Más experiencias chulas siempre en camino!",
+    profileText: "¡Hola! Soy Cynthia Tristán, entusiasta jugadora y creadora actualmente viviendo en España.\n\nMis especialidaes son C++ y la adaptabilidad: puedo desempeñar papeles en equipo que varían entre diseño y desarrollo de gameplay, UI/UX, sonido y pulido, así como desarrollo de herramientas y aceleración por hardware.\n\nAhora mismo me encuentro buscando prácticas curriculares, aprendiendo Unreal Engine y realizando mi TFG sobre interacción háptica, destrucción de mallas en tiempo real y prototipado de controladores.\n\nGracias por visitar mi portafolio, espero que lo pases bien echando un vistazo.\n\n¡Más experiencias chulas siempre en camino!",
     skillsText: "Texto en en español.\n\nSalto de línea.",
     projectsText: "Texto en en español.\n\nSalto de línea.",
     resume: "CV",
@@ -87,6 +88,7 @@ const translations = {
     d4: "Videojuego en Unity con FMOD y simulador del modelo físico de las placas de Chladni en 2D por un equipo de 2 personas.",
     d5: "Videojuego de horror en Godot para la SCREAM JAM 2024, 5º puesto en categoría narrativa.",
     d6: "Videojuego de deck-building con multijugador 1v1 local y estética PSX escrito en C++ con SDL por un equipo de 11 personas.",
+    d7: "Prototipo de aplicación de pintura 3D de mapas de normales en tiempo real hecha en Godot y acelerada por shaders de cómputo.",
     more: "¡y más!",
 
     contactFirst: "Envía un correo a",
