@@ -590,17 +590,21 @@ form>.send>button:hover {
 
 .card-wrap {
     /* margin: 10px; */
+    position: relative;
     transform: perspective(800px);
     transform-style: preserve-3d;
     cursor: pointer;
     width: 100%;
     max-width: 100%;
+}
+
+.card-link {
     color: inherit;
     display: block;
     text-decoration: none;
 }
 
-.card-wrap:focus-visible {
+.card-link:focus-visible {
     outline: 2px solid var(--ambar-cynthia);
     outline-offset: 4px;
 }
@@ -667,6 +671,29 @@ form>.send>button:hover {
     background-position: center;
     background-size: cover;
     /* transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95); */
+}
+
+.card-video-play {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    padding: 0.75em 1em;
+    border: 2px solid var(--blanco-cynthia);
+    background: var(--negro-cynthia);
+    color: var(--blanco-cynthia);
+    font: inherit;
+    cursor: pointer;
+}
+
+.card-video-play:hover,
+.card-video-play:focus-visible {
+    border-color: var(--ambar-cynthia);
+    color: var(--ambar-cynthia);
 }
 
 .card-info {

@@ -21,6 +21,7 @@ const translations = {
     projectsText: "",
     resume: "Resume",
     mail: "Mail",
+    playVideo: "Play video",
 
     s1: "Experience",
     s2: "Education",
@@ -67,6 +68,7 @@ const translations = {
     projectsText: "Texto en en español.\n\nSalto de línea.",
     resume: "CV",
     mail: "Correo",
+    playVideo: "Reproducir v\u00eddeo",
 
     s1: "Experiencia",
     s2: "Formación",
@@ -537,9 +539,10 @@ function initializePageBackground() {
 
 const enableCardMotion = false;
 
-const mobileCards = new Map();
+const projectCards = new Map();
 let activeMobileCard = null;
 let mobileCardObserver = null;
+let cardPreloadObserver = null;
 let mobileCardUpdateFrame = null;
 
 function getVisibleArea(element) {
@@ -555,7 +558,7 @@ function updateActiveMobileCard() {
   let nextActiveCard = null;
   let largestVisibleArea = 0;
 
-  mobileCards.forEach((card, element) => {
+  projectCards.forEach((card, element) => {
     if (!card.isMobileCard) return;
 
     const visibleArea = getVisibleArea(element);
@@ -568,10 +571,12 @@ function updateActiveMobileCard() {
   if (nextActiveCard !== activeMobileCard) {
     if (activeMobileCard) activeMobileCard.pauseCardVideo();
     activeMobileCard = nextActiveCard;
-    if (activeMobileCard) activeMobileCard.playCardVideo();
+    if (activeMobileCard) {
+      activeMobileCard.playCardVideo();
+    }
   }
 
-  mobileCards.forEach(card => {
+  projectCards.forEach(card => {
     if (card.isMobileCard && card !== activeMobileCard) {
       card.pauseCardVideo();
     }
@@ -583,11 +588,39 @@ function scheduleMobileCardUpdate() {
   mobileCardUpdateFrame = window.requestAnimationFrame(updateActiveMobileCard);
 }
 
-function registerMobileCard(card) {
+function prepareNextCardVideo(card) {
+  const cards = Array.from(projectCards.values());
+  const cardIndex = cards.indexOf(card);
+  const nextCard = cards[cardIndex + 1];
+  if (nextCard) nextCard.prepareCardVideo();
+}
+
+function prepareNearestCardVideo() {
+  let nearestCard = null;
+  let shortestDistance = Infinity;
+
+  projectCards.forEach((card, element) => {
+    const rect = element.getBoundingClientRect();
+    const distance = rect.bottom < 0
+      ? -rect.bottom
+      : rect.top > window.innerHeight
+        ? rect.top - window.innerHeight
+        : 0;
+
+    if (distance < shortestDistance) {
+      shortestDistance = distance;
+      nearestCard = card;
+    }
+  });
+
+  if (nearestCard) nearestCard.prepareCardVideo();
+}
+
+function registerProjectCard(card) {
   const element = card.$refs.card;
   if (!element) return;
 
-  mobileCards.set(element, card);
+  projectCards.set(element, card);
 
   if ("IntersectionObserver" in window) {
     if (!mobileCardObserver) {
@@ -597,23 +630,42 @@ function registerMobileCard(card) {
       });
     }
     mobileCardObserver.observe(element);
+
+    if (!cardPreloadObserver) {
+      cardPreloadObserver = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+          prepareNearestCardVideo();
+        }
+      }, {
+        rootMargin: "700px 0px",
+        threshold: 0
+      });
+    }
+    cardPreloadObserver.observe(element);
   }
 
   scheduleMobileCardUpdate();
 }
 
-function unregisterMobileCard(card) {
+function unregisterProjectCard(card) {
   const element = card.$refs.card;
   if (element) {
     if (mobileCardObserver) mobileCardObserver.unobserve(element);
-    mobileCards.delete(element);
+    if (cardPreloadObserver) cardPreloadObserver.unobserve(element);
+    projectCards.delete(element);
   }
 
   if (activeMobileCard === card) activeMobileCard = null;
 
-  if (mobileCards.size === 0 && mobileCardObserver) {
-    mobileCardObserver.disconnect();
-    mobileCardObserver = null;
+  if (projectCards.size === 0) {
+    if (mobileCardObserver) {
+      mobileCardObserver.disconnect();
+      mobileCardObserver = null;
+    }
+    if (cardPreloadObserver) {
+      cardPreloadObserver.disconnect();
+      cardPreloadObserver = null;
+    }
   }
 
   scheduleMobileCardUpdate();
@@ -623,63 +675,77 @@ Vue.config.devtools = true;
 
 Vue.component('card', {
   template: `
-    <component
-      :is="href ? 'a' : 'div'"
+    <div
       class="card-wrap"
-      :href="href || null"
-      :target="href ? target : null"
-      :rel="href && target === '_blank' ? 'noopener noreferrer' : null"
       @mousemove="handleMouseMove"
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
-      @focus="handleMouseEnter"
-      @blur="handleMouseLeave"
       ref="card">
-      <div class="card"
-        :style="cardStyle">
-        <video
-          v-if="dataVideo"
-          class="card-bg card-bg-video"
-          :style="cardBgTransform"
-          :src="dataVideo"
-          :poster="dataImage || null"
-          muted
-          loop
-          playsinline
-          preload="metadata"
-          ref="video"></video>
-        <div
-          v-else
-          class="card-bg card-bg-image"
-          :style="[cardBgTransform, cardBgImage]"></div>
-        <div class="card-info" :style="cardInfoStyle" ref="cardInfo">
-          <div class="card-info-title" ref="cardTitle">
-            <slot name="header"></slot>
-          </div>
-          <div class="card-info-content">
-            <slot name="content"></slot>
+      <component
+        :is="href ? 'a' : 'div'"
+        class="card-link"
+        :href="href || null"
+        :target="href ? target : null"
+        :rel="href && target === '_blank' ? 'noopener noreferrer' : null"
+        @focus="handleMouseEnter"
+        @blur="handleMouseLeave">
+        <div class="card"
+          :style="cardStyle">
+          <video
+            v-if="dataVideo"
+            class="card-bg card-bg-video"
+            :style="cardBgTransform"
+            :src="videoSrc || null"
+            :poster="dataImage || null"
+            :preload="videoPreload"
+            @playing="handleVideoPlaying"
+            @error="handleVideoError"
+            muted
+            loop
+            playsinline
+            ref="video"></video>
+          <div
+            v-else
+            class="card-bg card-bg-image"
+            :style="[cardBgTransform, cardBgImage]"></div>
+          <div class="card-info" :style="cardInfoStyle" ref="cardInfo">
+            <div class="card-info-title" ref="cardTitle">
+              <slot name="header"></slot>
+            </div>
+            <div class="card-info-content">
+              <slot name="content"></slot>
+            </div>
           </div>
         </div>
-      </div>
-    </component>`,
+      </component>
+      <button
+        v-if="showPlayFallback"
+        class="card-video-play"
+        type="button"
+        :aria-label="playVideoLabel"
+        @click.stop="retryCardVideo">
+        <span aria-hidden="true">&#9654;</span>
+        <span>{{ playVideoLabel }}</span>
+      </button>
+    </div>`,
   mounted() {
     this.mobileCardQuery = window.matchMedia("(max-width: 599px)");
     this.isMobileCard = this.mobileCardQuery.matches;
     this.updateCardBounds();
     window.addEventListener("resize", this.updateCardBounds);
-    window.addEventListener("cards-content-updated", this.updateCardBounds);
+    window.addEventListener("cards-content-updated", this.handleCardContentUpdated);
     if (this.mobileCardQuery.addEventListener) {
       this.mobileCardQuery.addEventListener("change", this.handleMobileCardChange);
     } else {
       this.mobileCardQuery.addListener(this.handleMobileCardChange);
     }
-    registerMobileCard(this);
+    registerProjectCard(this);
     this.$nextTick(this.updateCardBounds);
     this.$nextTick(this.syncMobileCardVideo);
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.updateCardBounds);
-    window.removeEventListener("cards-content-updated", this.updateCardBounds);
+    window.removeEventListener("cards-content-updated", this.handleCardContentUpdated);
     if (this.mobileCardQuery) {
       if (this.mobileCardQuery.removeEventListener) {
         this.mobileCardQuery.removeEventListener("change", this.handleMobileCardChange);
@@ -687,7 +753,7 @@ Vue.component('card', {
         this.mobileCardQuery.removeListener(this.handleMobileCardChange);
       }
     }
-    unregisterMobileCard(this);
+    unregisterProjectCard(this);
     this.pauseCardVideo();
   },
   props: {
@@ -707,7 +773,12 @@ Vue.component('card', {
     hiddenInfoOffset: 0,
     mouseLeaveDelay: null,
     isMobileCard: false,
-    mobileCardQuery: null
+    mobileCardQuery: null,
+    videoSrc: null,
+    videoPreload: "none",
+    shouldPlayVideo: false,
+    showPlayFallback: false,
+    cardLanguage: document.documentElement.lang || "en"
   }),
   computed: {
     mousePX() {
@@ -751,9 +822,17 @@ Vue.component('card', {
       return {
         "--card-info-hidden": `${this.hiddenInfoOffset}px`
       };
+    },
+    playVideoLabel() {
+      const language = translations[this.cardLanguage] ? this.cardLanguage : "en";
+      return translations[language].playVideo;
     }
   },
   methods: {
+    handleCardContentUpdated() {
+      this.cardLanguage = document.documentElement.lang || "en";
+      this.updateCardBounds();
+    },
     updateCardBounds() {
       const rect = this.$refs.card.getBoundingClientRect();
       this.width = rect.width;
@@ -785,8 +864,11 @@ Vue.component('card', {
 
       clearTimeout(this.mouseLeaveDelay);
     },
-    handleMouseLeave() {
+    handleMouseLeave(event) {
       if (this.isMobileCard) return;
+      if (event && event.type === "blur" && event.relatedTarget && this.$refs.card.contains(event.relatedTarget)) {
+        return;
+      }
 
       this.pauseCardVideo();
 
@@ -809,20 +891,72 @@ Vue.component('card', {
         scheduleMobileCardUpdate();
       }
     },
-    playCardVideo() {
-      const video = this.$refs.video;
-      if (!video) return;
+    prepareCardVideo() {
+      if (!this.dataVideo) return;
 
+      this.videoPreload = "auto";
+
+      if (this.videoSrc === this.dataVideo) {
+        const video = this.$refs.video;
+        if (video) video.preload = "auto";
+        return;
+      }
+
+      this.videoSrc = this.dataVideo;
+      this.$nextTick(() => {
+        const video = this.$refs.video;
+        if (!video) return;
+
+        video.muted = true;
+        video.preload = "auto";
+        video.load();
+
+        if (this.shouldPlayVideo) this.attemptCardVideoPlayback(video);
+      });
+    },
+    playCardVideo() {
+      this.shouldPlayVideo = true;
+
+      if (this.videoSrc !== this.dataVideo) {
+        this.prepareCardVideo();
+        return;
+      }
+
+      const video = this.$refs.video;
+      if (video) this.attemptCardVideoPlayback(video);
+    },
+    attemptCardVideoPlayback(video) {
+      video.muted = true;
       const playRequest = video.play();
       if (playRequest && typeof playRequest.catch === "function") {
-        playRequest.catch(() => { });
+        playRequest
+          .then(() => {
+            if (this.shouldPlayVideo) this.showPlayFallback = false;
+          })
+          .catch(error => {
+            if (!this.shouldPlayVideo || error.name === "AbortError") return;
+            this.showPlayFallback = true;
+          });
       }
     },
     pauseCardVideo() {
+      this.shouldPlayVideo = false;
+      this.showPlayFallback = false;
+
       const video = this.$refs.video;
       if (!video) return;
 
       video.pause();
+    },
+    retryCardVideo() {
+      this.playCardVideo();
+    },
+    handleVideoPlaying() {
+      this.showPlayFallback = false;
+      prepareNextCardVideo(this);
+    },
+    handleVideoError() {
+      if (this.shouldPlayVideo) this.showPlayFallback = true;
     }
   }
 });
