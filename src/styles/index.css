@@ -462,12 +462,29 @@ hr {
     font-size: var(--body-text-size);
     display: grid;
     align-self: center;
-    margin: 10px 0px;
+    align-items: center;
 }
 
+.project-last {
+    align-self: center;
+    align-items: center;
+    text-align: center;
+    color: var(--blanco-cynthia);
+    font-style: italic;
+    font-weight: 500;
+    font-size: var(--section-title-size);
+    margin-top: 16px;
+    margin-bottom: 12px;
+    gap: 16px;
+    display: grid;
+    columns: 1;
+    width: 40%;
+}
 
-
-
+#projects {
+    align-items: center;
+    display: flex;
+}
 
 
 

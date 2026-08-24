@@ -9,7 +9,7 @@ const resumeFiles = {
 // LOCALIZACION
 const translations = {
   en: {
-    roleDeveloper: "Game Designer",
+    roleDeveloper: "Game Developer",
     roleDesigner: "Developer",
     profileTitle: "Info",
     skillsTitle: "Profile",
@@ -49,14 +49,14 @@ const translations = {
     formSubject: "Subject:",
     formMessage: "Message:",
     formSend: "Send",
-    more: "and more!",
+    more: "And more!",
 
     footerDate: "August 2026<br>Cynthia Tristán Álvarez",
     footerText: "Made with Figma in HTML, CSS and JS<br>source code on <a target=\"_blank\" href=\"https://github.com/cyntrist/cyntrist.github.io\">Github</a>"
 
   },
   es: {
-    roleDeveloper: "Game Designer",
+    roleDeveloper: "Game Developer",
     roleDesigner: "Developer",
     profileTitle: "Info",
     skillsTitle: "Perfil",
@@ -89,7 +89,7 @@ const translations = {
     d5: "Videojuego de horror en Godot para la SCREAM JAM 2024, 5º puesto en categoría narrativa.",
     d6: "Videojuego de deck-building con multijugador 1v1 local y estética PSX escrito en C++ con SDL por un equipo de 11 personas.",
     d7: "Prototipo de aplicación de pintura 3D de mapas de normales en tiempo real hecha en Godot y acelerada por shaders de cómputo.",
-    more: "¡y más!",
+    more: "¡Y más!",
 
     contactFirst: "Envía un correo a",
     contactLast: "o rellena este formulario:",
