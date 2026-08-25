@@ -634,8 +634,8 @@ Vue.component('card', {
       @mousemove="handleMouseMove"
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
-      @focus="handleMouseEnter"
-      @blur="handleMouseLeave"
+      @focus="handleFocus"
+      @blur="handleBlur"
       ref="card">
       <div class="card"
         :style="cardStyle">
@@ -648,7 +648,7 @@ Vue.component('card', {
           muted
           loop
           playsinline
-          preload="metadata"
+          :preload="dataPreload"
           ref="video"></video>
         <div
           v-else
@@ -695,6 +695,10 @@ Vue.component('card', {
   props: {
     dataImage: String,
     dataVideo: String,
+    dataPreload: {
+      type: String,
+      default: "metadata"
+    },
     href: String,
     target: {
       type: String,
@@ -708,6 +712,11 @@ Vue.component('card', {
     mouseY: 0,
     hiddenInfoOffset: 0,
     mouseLeaveDelay: null,
+    isPointerOver: false,
+    isFocused: false,
+    videoPlayRequestId: 0,
+    videoPlayRetry: null,
+    videoPlayRetryTimer: null,
     isMobileCard: false,
     mobileCardQuery: null
   }),
@@ -783,6 +792,7 @@ Vue.component('card', {
     handleMouseEnter() {
       if (this.isMobileCard) return;
 
+      this.isPointerOver = true;
       this.playCardVideo();
 
       clearTimeout(this.mouseLeaveDelay);
@@ -790,7 +800,8 @@ Vue.component('card', {
     handleMouseLeave() {
       if (this.isMobileCard) return;
 
-      this.pauseCardVideo();
+      this.isPointerOver = false;
+      this.syncDesktopCardVideo();
 
       if (enableCardMotion) {
         this.mouseLeaveDelay = setTimeout(() => {
@@ -798,6 +809,18 @@ Vue.component('card', {
           this.mouseY = 0;
         }, 1000);
       }
+    },
+    handleFocus() {
+      if (this.isMobileCard) return;
+
+      this.isFocused = true;
+      this.playCardVideo();
+    },
+    handleBlur() {
+      if (this.isMobileCard) return;
+
+      this.isFocused = false;
+      this.syncDesktopCardVideo();
     },
     handleMobileCardChange(e) {
       this.isMobileCard = e.matches;
@@ -807,23 +830,70 @@ Vue.component('card', {
       if (this.isMobileCard) {
         scheduleMobileCardUpdate();
       } else {
-        this.pauseCardVideo();
+        this.syncDesktopCardVideo();
         scheduleMobileCardUpdate();
       }
     },
-    playCardVideo() {
+    syncDesktopCardVideo() {
+      if (this.isPointerOver || this.isFocused) {
+        this.playCardVideo();
+      } else {
+        this.pauseCardVideo();
+      }
+    },
+    shouldPlayCardVideo() {
+      return this.isMobileCard
+        ? activeMobileCard === this
+        : this.isPointerOver || this.isFocused;
+    },
+    clearVideoPlayRetry() {
+      const video = this.$refs.video;
+      if (video && this.videoPlayRetry) {
+        video.removeEventListener("canplay", this.videoPlayRetry);
+      }
+      if (this.videoPlayRetryTimer !== null) {
+        clearTimeout(this.videoPlayRetryTimer);
+      }
+      this.videoPlayRetry = null;
+      this.videoPlayRetryTimer = null;
+    },
+    playCardVideo(isRetry = false) {
       const video = this.$refs.video;
       if (!video) return;
 
+      this.clearVideoPlayRetry();
+      const requestId = ++this.videoPlayRequestId;
       const playRequest = video.play();
       if (playRequest && typeof playRequest.catch === "function") {
-        playRequest.catch(() => { });
+        playRequest.catch((error) => {
+          if (requestId !== this.videoPlayRequestId || !this.shouldPlayCardVideo()) return;
+
+          if (isRetry) {
+            console.warn("Card video could not start:", error);
+            return;
+          }
+
+          const retry = () => {
+            if (requestId !== this.videoPlayRequestId) return;
+            this.clearVideoPlayRetry();
+            if (this.shouldPlayCardVideo()) this.playCardVideo(true);
+          };
+
+          this.videoPlayRetry = retry;
+          if (video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+            this.videoPlayRetryTimer = setTimeout(retry, 100);
+          } else {
+            video.addEventListener("canplay", retry, { once: true });
+          }
+        });
       }
     },
     pauseCardVideo() {
       const video = this.$refs.video;
       if (!video) return;
 
+      ++this.videoPlayRequestId;
+      this.clearVideoPlayRetry();
       video.pause();
     }
   }
