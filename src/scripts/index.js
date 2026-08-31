@@ -410,7 +410,7 @@ function initializePageBackground() {
     const now = performance.now();
 
     ctx.clearRect(0, 0, width, viewportHeight);
-    ctx.fillStyle = "#080808";
+    ctx.fillStyle = "#0C0B08";
     ctx.fillRect(0, 0, width, viewportHeight);
 
     frameCount++;
