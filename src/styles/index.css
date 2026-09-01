@@ -910,3 +910,38 @@ form>.send>button:hover {
         gap: 4px;
     }
 }
+
+
+
+
+
+
+/* Selection */
+/*** Works on common browsers ***/
+::selection {
+    background-color: var(--lila-cynthia);
+    color: var(--negro-cynthia);
+}
+
+/*** Mozilla based browsers ***/
+::-moz-selection {
+    background-color: var(--lila-cynthia);
+    color: var(--negro-cynthia);
+}
+
+/***For Other Browsers ***/
+::-o-selection {
+    background-color: var(--lila-cynthia);
+    color: var(--negro-cynthia);
+}
+
+::-ms-selection {
+    background-color: var(--lila-cynthia);
+    color: var(--negro-cynthia);
+}
+
+/*** For Webkit ***/
+::-webkit-selection {
+    background-color: var(--lila-cynthia);
+    color: var(--negro-cynthia);
+}
