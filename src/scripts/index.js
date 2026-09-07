@@ -209,7 +209,6 @@ function initializePageBackground() {
   if (!ctx) return;
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
   const gap = 64;
   const size_factor = 0.15;
   const in_radio_min = 0.2;
@@ -448,7 +447,7 @@ function initializePageBackground() {
       }
 
       let pointerInfluence = 0;
-      if (pointer && !isTouchDevice) {
+      if (pointer) {
         const dx = shape.x - pointer.x;
         const dy = shape.y - (pointer.y + scrollY);
         const dist = Math.sqrt(dx * dx + dy * dy);
@@ -478,8 +477,7 @@ function initializePageBackground() {
 
       const pointerTarget = restScale + pointerInfluence * (shape.maxScale - restScale);
       const waveTarget = restScale + waveInfluence * (shape.maxScale - restScale);
-      const mobileTarget = isTouchDevice ? shape.maxScale : restScale;
-      const target = Math.max(pointerTarget, mobileTarget, waveTarget);
+      const target = Math.max(pointerTarget, waveTarget);
       const factor = target > shape.scale ? durationToFactor(speedIn) : durationToFactor(speedOut);
       shape.scale += (target - shape.scale) * factor;
 
