@@ -217,6 +217,8 @@ function initializePageBackground() {
   const speedIn = 0.5;
   const speedOut = 0.6;
   const restScale = 0.09;
+  const rotationSpeedMin = -1;
+  const rotationSpeedMax = 1;
   const minHoverScale = 3;
   const maxHoverScale = 3;
   const waveSpeed = 1200;
@@ -271,6 +273,7 @@ function initializePageBackground() {
   let maskRects = [];
   let frameCount = 0;
   let maskOverride = false;
+  let previousFrameTime = null;
 
   const rnd = (min, max) => Math.random() * (max - min) + min;
   const rndInt = (min, max) => Math.floor(rnd(min, max + 1));
@@ -346,6 +349,7 @@ function initializePageBackground() {
           type,
           color: pick(palette),
           angle: rnd(0, Math.PI * 2),
+          rotationSpeed: rnd(rotationSpeedMin, rotationSpeedMax),
           size: gap * size_factor,
           scale: restScale,
           maxScale: rnd(minHoverScale, maxHoverScale),
@@ -408,6 +412,10 @@ function initializePageBackground() {
     const visibleBottom = scrollY + viewportHeight + gap * maxHoverScale;
     const radius = Math.min(width, viewportHeight) * (radiusVmin / 100);
     const now = performance.now();
+    const deltaSeconds = previousFrameTime === null
+      ? 0
+      : Math.min((now - previousFrameTime) / 1000, 0.1);
+    previousFrameTime = now;
 
     ctx.clearRect(0, 0, width, viewportHeight);
     ctx.fillStyle = "#0C0B08";
@@ -420,6 +428,8 @@ function initializePageBackground() {
     waves = waves.filter((wave) => ((now - wave.startTime) / 1000) * waveSpeed < maxDist + waveWidth);
 
     shapes.forEach((shape) => {
+      shape.angle += shape.rotationSpeed * deltaSeconds;
+
       if (shape.y < visibleTop || shape.y > visibleBottom) return;
 
       const pad = gap / 2;
