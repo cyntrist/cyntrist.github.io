@@ -51,7 +51,7 @@ const translations = {
     formSend: "Send",
     more: "And more!",
 
-    footerDate: "August 2026<br>Cynthia Tristán Álvarez",
+    footerDate: "November 2026<br>Cynthia Tristán Álvarez",
     footerText: "Made with Figma in HTML, CSS and JS<br>source code on <a target=\"_blank\" href=\"https://github.com/cyntrist/cyntrist.github.io\">Github</a>"
 
   },
@@ -99,7 +99,7 @@ const translations = {
     formMessage: "Mensaje:",
     formSend: "Enviar",
 
-    footerDate: "Agosto de 2026<br>Cynthia Tristán Álvarez",
+    footerDate: "Noviembre de 2026<br>Cynthia Tristán Álvarez",
     footerText: "Hecho con Figma en HTML, CSS y JS<br>código fuente en <a href=\"https://github.com/cyntrist/cyntrist.github.io\">Github</a>"
   }
 };
@@ -418,7 +418,7 @@ function initializePageBackground() {
     previousFrameTime = now;
 
     ctx.clearRect(0, 0, width, viewportHeight);
-    ctx.fillStyle = "#0C0B08";
+    ctx.fillStyle = "#080704";
     ctx.fillRect(0, 0, width, viewportHeight);
 
     frameCount++;
